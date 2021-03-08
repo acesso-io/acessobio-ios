@@ -71,7 +71,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorSilhoutteNeutral = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorSilhoutteNeutral = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorSilhoutteNeutral = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -83,7 +87,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorSilhoutteSuccess = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorSilhoutteSuccess = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorSilhoutteSuccess = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -95,7 +103,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorSilhoutteError = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorSilhoutteError = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorSilhoutteError = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -108,7 +120,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorBackground = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorBackground = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorBackground = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -120,7 +136,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorBackgroundBoxStatus = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorBackgroundBoxStatus = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorBackgroundBoxStatus = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -144,7 +164,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorBackgroundPopupError = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorBackgroundPopupError = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorBackgroundPopupError = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -157,7 +181,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorTextPopupError = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorTextPopupError = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorTextPopupError = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -169,7 +197,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorBackgroundButtonPopupError = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorBackgroundButtonPopupError = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorBackgroundButtonPopupError = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -181,7 +213,11 @@
     if([color isKindOfClass:[UIColor class]]) {
         colorTitleButtonPopupError = color;
     }else if([color isKindOfClass:[NSString class]]) {
-        colorTitleButtonPopupError = [UIColor colorWithHexString:color];
+        if([self verifyColorString:color]) {
+            colorTitleButtonPopupError = [UIColor colorWithHexString:color];
+        }else{
+            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        }
     }else{
         [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
     }
@@ -482,6 +518,20 @@
         return NO;
     }
 }
+
+- (BOOL)verifyColorString : (NSString *)string{
+    NSCharacterSet *chars = [[NSCharacterSet
+           characterSetWithCharactersInString:@"#0123456789ABCDEF"] invertedSet];
+    
+    
+    BOOL isValid = (NSNotFound == [string rangeOfCharacterFromSet:chars].location);
+    if(string.length == 0) {
+        isValid = NO;
+    }
+    return isValid;
+}
+
+
 
 #pragma mark - Callbacks
 

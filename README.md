@@ -46,7 +46,7 @@ pod init
 ou 
 ```
   pod ‘AcessoBio’, :git => 'https://github.com/acesso-io/acessobio-ios'
-, :tag => ‘1.2.1’
+, :tag => ‘1.2.1.1’
 ```
 última versão estável.
 

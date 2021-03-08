@@ -9,6 +9,7 @@
 #import "LivenessXView.h"
 #import "CameraFaceView.h"
 #import "DocumentInsertView.h"
+#import "UIColorExtensions.h"
 
 @implementation AcessoBioManager
 
@@ -24,10 +25,27 @@
         token = pToken;
         isAutoCapture = YES;
         isSmartCamera = YES;
+        [self setDefaultOrigin];
+        [self setDefaultVersionRelease];
     }
     
     return self;
     
+}
+
+#pragma mark - Origin and Version
+
+- (void)setDefaultOrigin {
+    language = Native;
+}
+
+- (void)setDefaultVersionRelease {
+    versionRelease = @"1.2.1.1";
+}
+
+- (void)setLanguageOrigin: (LanguageOrigin)origin release: (NSString*)release{
+    language = origin;
+    versionRelease = release;
 }
 
 #pragma mark - Custom
@@ -48,48 +66,130 @@
     isSmartCamera = YES;
 }
 
-- (void)setColorSilhoutteNeutral: (UIColor *)color {
-    colorSilhoutteNeutral = color;
+- (void)setColorSilhoutteNeutral: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorSilhoutteNeutral = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorSilhoutteNeutral = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
 }
 
-- (void)setColorSilhoutteSuccess: (UIColor *)color {
-    colorSilhoutteSuccess = color;
+- (void)setColorSilhoutteSuccess: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorSilhoutteSuccess = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorSilhoutteSuccess = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
 
 }
 
-- (void)setColorSilhoutteError: (UIColor *)color {
-    colorSilhoutteError = color;
+- (void)setColorSilhoutteError: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorSilhoutteError = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorSilhoutteError = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+
+    
 }
 
-- (void)setColorBackground: (UIColor *)color {
-    colorBackground = color;
+- (void)setColorBackground: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorBackground = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorBackground = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+
 }
 
-- (void)setColorBackgroundBoxStatus: (UIColor *)color {
-    colorBackgroundBoxStatus = color;
+- (void)setColorBackgroundBoxStatus: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorBackgroundBoxStatus = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorBackgroundBoxStatus = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
 }
 
-- (void)setColorTextBoxStatus: (UIColor *)color {
-    colorTextBoxStatus = color;
+- (void)setColorTextBoxStatus: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorTextBoxStatus = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorTextBoxStatus = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
 }
 
-- (void)setColorBackgroundPopupError: (UIColor *)color {
-    colorBackgroundPopupError = color;
+- (void)setColorBackgroundPopupError: (id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorBackgroundPopupError = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorBackgroundPopupError = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
 }
 
-- (void)setColorTextPopupError: (UIColor *)color {
+- (void)setColorTextPopupError: (id)color {
     colorTextPopupError = color;
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorTextPopupError = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorTextPopupError = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
 }
 
-- (void)setColorBackgroundButtonPopupError:(UIColor *)color {
-    colorBackgroundButtonPopupError = color;
+- (void)setColorBackgroundButtonPopupError:(id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorBackgroundButtonPopupError = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorBackgroundButtonPopupError = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
 }
 
-- (void)setColorTitleButtonPopupError:(UIColor *)color {
-    colorTitleButtonPopupError = color;
+- (void)setColorTitleButtonPopupError:(id)color {
+    
+    if([color isKindOfClass:[UIColor class]]) {
+        colorTitleButtonPopupError = color;
+    }else if([color isKindOfClass:[NSString class]]) {
+        colorTitleButtonPopupError = [UIColor colorWithHexString:color];
+    }else{
+        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+    }
+    
+    
 }
 
-- (void)setImageIconPopupError: (UIImage *)image {
+- (void)setImageIconPopupError: (id)image {
     imageIconPopupError = image;
 }
 
@@ -158,6 +258,8 @@
         [cView setColorBackground:colorBackground];
         [cView setColorBackgroundBoxStatus:colorBackgroundBoxStatus];
         [cView setColorTextBoxStatus:colorTextBoxStatus];
+        [cView setLanguage:language];
+        [cView setVersionRelease:versionRelease];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
         [nav setNavigationBarHidden:YES animated:NO];
         [nav setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -190,6 +292,8 @@
         [cView setColorBackground:colorBackground];
         [cView setColorBackgroundBoxStatus:colorBackgroundBoxStatus];
         [cView setColorTextBoxStatus:colorTextBoxStatus];
+        [cView setLanguage:language];
+        [cView setVersionRelease:versionRelease];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
         [nav setNavigationBarHidden:YES animated:NO];
         [nav setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -220,6 +324,8 @@
         [cView setTOKEN:token];
         [cView setIsEnableAutoCapture:isAutoCapture];
         [cView setIsEnableSmartCapture:isSmartCamera];
+        [cView setLanguage:language];
+        [cView setVersionRelease:versionRelease];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
         [nav setNavigationBarHidden:YES animated:NO];
         [nav setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -328,6 +434,8 @@
     [cView setIsEnableSmartCapture:isSmartCamera];
     [cView setIsFacesCompareOneToOne:YES];
     [cView setCpfToFacesCompare:cpf];
+    [cView setLanguage:language];
+    [cView setVersionRelease:versionRelease];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
     [nav setNavigationBarHidden:YES animated:NO];
     [nav setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -354,6 +462,8 @@
     [lView setColorBackgroundButtonPopupError:colorBackgroundButtonPopupError];
     [lView setColorTitleButtonPopupError:colorTitleButtonPopupError];
     [lView setImageIconPopupError:imageIconPopupError];
+    [lView setLanguage:language];
+    [lView setVersionRelease:versionRelease];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:lView];
     [nav setNavigationBarHidden:YES animated:NO];
     [nav setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -518,6 +628,16 @@
         [self.delegate onErrorFacesCompare:error];
     }else{
         NSLog(@"Método onErrorFacesCompare não implementado. Implemente-o e tente novamente...");
+    }
+    
+}
+
+- (void)onErrorAcessoBioManager:(NSString *)error {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorAcessoBioManager:)]) {
+        [self.delegate onErrorAcessoBioManager:error];
+    }else{
+        NSLog(@"Método onErrorAcessoBioManager não implementado. Implemente-o e tente novamente...");
     }
     
 }

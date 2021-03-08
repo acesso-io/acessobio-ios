@@ -33,6 +33,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
 @interface CameraFaceView : CameraMain <AVCaptureVideoDataOutputSampleBufferDelegate> {
     
     BOOL isSelfie;
@@ -270,6 +272,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIColor *colorBackground;
 @property (strong, nonatomic) UIColor *colorBackgroundBoxStatus;
 @property (strong, nonatomic) UIColor *colorTextBoxStatus;
+
+@property (readwrite) LanguageOrigin language;
+@property (strong, nonatomic) NSString *versionRelease;
 
 @end
 

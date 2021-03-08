@@ -23,5 +23,5 @@
 + (UIColor *)remateYellows;
 + (UIColor *)remateGreen;
 + (UIColor *)remateBlue;
-
++ (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 @end

@@ -1132,11 +1132,19 @@ float marginOfSides_CameraFace = 80.0f;
     
     isRequestWebService = YES;
     
+    NSString *languageOrigin = @"ios-native";
+    if(self.language == Flutter) {
+        languageOrigin = @"ios-flutter";
+    }else if (self.language == ReactNative) {
+        languageOrigin = @"ios-reactnative";
+    }
+    
+    NSString *baseWithOtherDatas = [NSString stringWithFormat:@"data:%@|%@/image/jpeg;base64,%@", languageOrigin, self.versionRelease, base64ToUsage];
     
     NSDictionary *dict = @{
         @"subject" : @{@"Code": self.acessiBioManager.createProcess.code, @"Name": self.acessiBioManager.createProcess.name},
         @"onlySelfie" : [NSNumber numberWithBool:YES],
-        @"imagebase64": _base64Center
+        @"imagebase64": baseWithOtherDatas
     };
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/services/v3/AcessoService.svc/processes", self.URL]];

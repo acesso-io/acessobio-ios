@@ -27,6 +27,14 @@ typedef NS_ENUM(NSInteger, DocumentType) {
     DocumentRGVerso
 };
 
+typedef NS_ENUM(NSInteger, LanguageOrigin) {
+    Native,
+    Flutter,
+    ReactNative
+};
+
+
+
 @protocol AcessoBioDelegate <NSObject>
 
 @optional
@@ -53,7 +61,9 @@ typedef NS_ENUM(NSInteger, DocumentType) {
 - (void)onSuccesCameraFace: (CameraFaceResult *)result;
 - (void)onErrorCameraFace: (NSString *)error;
 
-//@required
+@required
+- (void)onErrorAcessoBioManager: (NSString *)error;
+
 
 @end
 
@@ -63,6 +73,9 @@ typedef NS_ENUM(NSInteger, DocumentType) {
     LivenessXView *lView;
     CameraFaceView *cView;
     DocumentInsertView *dView;
+    
+    LanguageOrigin language;
+    NSString *versionRelease;
     
     NSString *url;
     NSString *apikey;
@@ -97,6 +110,10 @@ typedef NS_ENUM(NSInteger, DocumentType) {
 #pragma mark - Instance
 - (id)initWithViewController:(id)view url:(NSString*)url apikey: (NSString*)apikey token: (NSString*)token;
 
+#pragma mark - Language Origin
+
+- (void)setLanguageOrigin: (LanguageOrigin)origin release: (NSString*)release;
+
 #pragma mark - Custom
 
 - (void)disableAutoCapture;
@@ -105,17 +122,17 @@ typedef NS_ENUM(NSInteger, DocumentType) {
 - (void)enableAutoCapture;
 - (void)enableSmartCamera;
 
-- (void)setColorSilhoutteNeutral: (UIColor *)color;
-- (void)setColorSilhoutteSuccess: (UIColor *)color;
-- (void)setColorSilhoutteError: (UIColor *)color;
-- (void)setColorBackground: (UIColor *)color;
-- (void)setColorBackgroundBoxStatus: (UIColor *)color;
-- (void)setColorTextBoxStatus: (UIColor *)color;
-- (void)setColorBackgroundPopupError: (UIColor *)color;
-- (void)setColorTextPopupError: (UIColor *)color;
-- (void)setColorBackgroundButtonPopupError : (UIColor *)color;
-- (void)setColorTitleButtonPopupError : (UIColor *)color;
-- (void)setImageIconPopupError: (UIImage *)image; 
+- (void)setColorSilhoutteNeutral: (id)color;
+- (void)setColorSilhoutteSuccess: (id)color;
+- (void)setColorSilhoutteError: (id)color;
+- (void)setColorBackground: (id)color;
+- (void)setColorBackgroundBoxStatus: (id)color;
+- (void)setColorTextBoxStatus: (id)color;
+- (void)setColorBackgroundPopupError: (id)color;
+- (void)setColorTextPopupError: (id)color;
+- (void)setColorBackgroundButtonPopupError : (id)color;
+- (void)setColorTitleButtonPopupError : (id)color;
+- (void)setImageIconPopupError: (id)image;
 
 #pragma mark - Camera
 

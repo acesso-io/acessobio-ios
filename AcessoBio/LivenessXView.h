@@ -286,6 +286,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIImage *imageIconPopupError;
 
+@property (readwrite) LanguageOrigin language;
+@property (strong, nonatomic) NSString *versionRelease;
+
 @end
 
 NS_ASSUME_NONNULL_END

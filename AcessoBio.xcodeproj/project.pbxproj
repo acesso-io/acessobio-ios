@@ -7,48 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16DBCD672461ED970040D4E8 /* AcessoBio.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD652461ED970040D4E8 /* AcessoBio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16DBCD672461ED970040D4E8 /* AcessoBio.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD652461ED970040D4E8 /* AcessoBio.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		16DBCD7A2461EE3C0040D4E8 /* UIViewWithHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD6D2461EE3B0040D4E8 /* UIViewWithHole.m */; platformFilter = ios; };
 		16DBCD7B2461EE3C0040D4E8 /* CameraMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD6E2461EE3B0040D4E8 /* CameraMain.m */; platformFilter = ios; };
 		16DBCD7C2461EE3C0040D4E8 /* ValidateLiveness.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD6F2461EE3B0040D4E8 /* ValidateLiveness.m */; platformFilter = ios; };
-		16DBCD7D2461EE3C0040D4E8 /* ValidateLiveness.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD702461EE3B0040D4E8 /* ValidateLiveness.h */; };
-		16DBCD7F2461EE3C0040D4E8 /* UIImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD722461EE3B0040D4E8 /* UIImageUtils.h */; platformFilter = ios; };
+		16DBCD7D2461EE3C0040D4E8 /* ValidateLiveness.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD702461EE3B0040D4E8 /* ValidateLiveness.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		16DBCD7F2461EE3C0040D4E8 /* UIImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD722461EE3B0040D4E8 /* UIImageUtils.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		16DBCD802461EE3C0040D4E8 /* UIImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD732461EE3B0040D4E8 /* UIImageUtils.m */; platformFilter = ios; };
-		16DBCD812461EE3C0040D4E8 /* UIViewWithHole.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD742461EE3B0040D4E8 /* UIViewWithHole.h */; platformFilter = ios; };
-		16DBCD822461EE3C0040D4E8 /* UIColorExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD752461EE3B0040D4E8 /* UIColorExtensions.h */; platformFilter = ios; };
+		16DBCD812461EE3C0040D4E8 /* UIViewWithHole.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD742461EE3B0040D4E8 /* UIViewWithHole.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		16DBCD822461EE3C0040D4E8 /* UIColorExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD752461EE3B0040D4E8 /* UIColorExtensions.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		16DBCD832461EE3C0040D4E8 /* UIColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD762461EE3B0040D4E8 /* UIColorExtensions.m */; platformFilter = ios; };
-		16DBCD862461EE3C0040D4E8 /* CameraMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD792461EE3B0040D4E8 /* CameraMain.h */; platformFilter = ios; };
+		16DBCD862461EE3C0040D4E8 /* CameraMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD792461EE3B0040D4E8 /* CameraMain.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		97E59BE1256714BD0090575A /* ic_takepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E59BE0256714BD0090575A /* ic_takepicture.png */; };
 		E63F9B1125AE59B700F436D2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63F9B1025AE59B700F436D2 /* WebKit.framework */; };
 		E669E3F52469922900110BAC /* AcessoBioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E3EF2469922800110BAC /* AcessoBioManager.m */; platformFilter = ios; };
-		E669E3F62469922900110BAC /* AcessoBioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3F02469922800110BAC /* AcessoBioManager.h */; platformFilter = ios; };
+		E669E3F62469922900110BAC /* AcessoBioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3F02469922800110BAC /* AcessoBioManager.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E669E3F72469922900110BAC /* CameraFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E3F12469922900110BAC /* CameraFaceView.m */; platformFilter = ios; };
-		E669E3F82469922900110BAC /* LivenessXView.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3F22469922900110BAC /* LivenessXView.h */; platformFilter = ios; };
-		E669E3F92469922900110BAC /* CameraFaceView.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3F32469922900110BAC /* CameraFaceView.h */; platformFilter = ios; };
+		E669E3F82469922900110BAC /* LivenessXView.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3F22469922900110BAC /* LivenessXView.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		E669E3F92469922900110BAC /* CameraFaceView.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3F32469922900110BAC /* CameraFaceView.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E669E3FA2469922900110BAC /* LivenessXView.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E3F42469922900110BAC /* LivenessXView.m */; platformFilter = ios; };
 		E669E3FD2469928800110BAC /* CameraFaceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E3FB2469928800110BAC /* CameraFaceResult.m */; platformFilter = ios; };
-		E669E3FE2469928800110BAC /* CameraFaceResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3FC2469928800110BAC /* CameraFaceResult.h */; platformFilter = ios; };
-		E669E4512469BA6F00110BAC /* LivenessXResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E44F2469BA6E00110BAC /* LivenessXResult.h */; platformFilter = ios; };
+		E669E3FE2469928800110BAC /* CameraFaceResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E3FC2469928800110BAC /* CameraFaceResult.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		E669E4512469BA6F00110BAC /* LivenessXResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E44F2469BA6E00110BAC /* LivenessXResult.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E669E4522469BA6F00110BAC /* LivenessXResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E4502469BA6E00110BAC /* LivenessXResult.m */; platformFilter = ios; };
 		E669E4552469C20F00110BAC /* CreateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E4532469C20E00110BAC /* CreateProcess.m */; platformFilter = ios; };
-		E669E4562469C20F00110BAC /* CreateProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E4542469C20F00110BAC /* CreateProcess.h */; platformFilter = ios; };
-		E669E4582469C30B00110BAC /* FixedValues.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E4572469C30B00110BAC /* FixedValues.h */; platformFilter = ios; };
+		E669E4562469C20F00110BAC /* CreateProcess.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E4542469C20F00110BAC /* CreateProcess.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		E669E4582469C30B00110BAC /* FixedValues.h in Headers */ = {isa = PBXBuildFile; fileRef = E669E4572469C30B00110BAC /* FixedValues.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E67B7A53247195C000918066 /* ic_popup_face_error.png in Resources */ = {isa = PBXBuildFile; fileRef = E67B7A50247195C000918066 /* ic_popup_face_error.png */; };
 		E67B7A5A2471B9CD00918066 /* ic_close.png in Resources */ = {isa = PBXBuildFile; fileRef = E67B7A592471B9CD00918066 /* ic_close.png */; };
-		E69DB92B24E1E0BD001A1C2A /* DocumentInsertView.h in Headers */ = {isa = PBXBuildFile; fileRef = E69DB92924E1E0BC001A1C2A /* DocumentInsertView.h */; };
+		E69DB92B24E1E0BD001A1C2A /* DocumentInsertView.h in Headers */ = {isa = PBXBuildFile; fileRef = E69DB92924E1E0BC001A1C2A /* DocumentInsertView.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E69DB92C24E1E0BD001A1C2A /* DocumentInsertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69DB92A24E1E0BC001A1C2A /* DocumentInsertView.m */; };
 		E69DB92F24E1E0FC001A1C2A /* OCRResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E69DB92D24E1E0FB001A1C2A /* OCRResult.m */; };
-		E69DB93024E1E0FC001A1C2A /* OCRResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E69DB92E24E1E0FC001A1C2A /* OCRResult.h */; };
-		E69DB93524E20021001A1C2A /* FacematchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E69DB93324E20020001A1C2A /* FacematchResult.h */; };
+		E69DB93024E1E0FC001A1C2A /* OCRResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E69DB92E24E1E0FC001A1C2A /* OCRResult.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		E69DB93524E20021001A1C2A /* FacematchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E69DB93324E20020001A1C2A /* FacematchResult.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E69DB93624E20021001A1C2A /* FacematchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E69DB93424E20020001A1C2A /* FacematchResult.m */; };
 		E6BAF99725ACD2AA003903C4 /* CenterModelCrop.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD782461EE3B0040D4E8 /* CenterModelCrop.mlmodel */; };
 		E6CE35C025ACCC2F004CCD29 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CE35BF25ACCC2F004CCD29 /* LocalAuthentication.framework */; };
 		E6D86EA624E07AAB00B24B12 /* frame_cnh.png in Resources */ = {isa = PBXBuildFile; fileRef = E6D86EA324E07AAA00B24B12 /* frame_cnh.png */; };
 		E6D86EA724E07AAB00B24B12 /* frame_rg_frente.png in Resources */ = {isa = PBXBuildFile; fileRef = E6D86EA424E07AAA00B24B12 /* frame_rg_frente.png */; };
 		E6D86EA824E07AAB00B24B12 /* frame_rg_verso.png in Resources */ = {isa = PBXBuildFile; fileRef = E6D86EA524E07AAB00B24B12 /* frame_rg_verso.png */; };
-		E6D86EAF24E087DE00B24B12 /* CameraDocumentResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E6D86EAD24E087DE00B24B12 /* CameraDocumentResult.h */; };
+		E6D86EAF24E087DE00B24B12 /* CameraDocumentResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E6D86EAD24E087DE00B24B12 /* CameraDocumentResult.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E6D86EB024E087DE00B24B12 /* CameraDocumentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D86EAE24E087DE00B24B12 /* CameraDocumentResult.m */; };
-		E6FDF4A72469CCC300A8D34D /* PopUpValidationLiveness.h in Headers */ = {isa = PBXBuildFile; fileRef = E6FDF4A52469CCC300A8D34D /* PopUpValidationLiveness.h */; platformFilter = ios; };
+		E6FDF4A72469CCC300A8D34D /* PopUpValidationLiveness.h in Headers */ = {isa = PBXBuildFile; fileRef = E6FDF4A52469CCC300A8D34D /* PopUpValidationLiveness.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FDF4A82469CCC300A8D34D /* PopUpValidationLiveness.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FDF4A62469CCC300A8D34D /* PopUpValidationLiveness.m */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
@@ -67,6 +67,23 @@
 		16DBCD762461EE3B0040D4E8 /* UIColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtensions.m; sourceTree = "<group>"; };
 		16DBCD782461EE3B0040D4E8 /* CenterModelCrop.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CenterModelCrop.mlmodel; sourceTree = "<group>"; };
 		16DBCD792461EE3B0040D4E8 /* CameraMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraMain.h; sourceTree = "<group>"; };
+		2BEDCE50265350E60055870A /* AcessoBioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AcessoBioManager.h; path = AcessoBio/AcessoBioManager.h; sourceTree = "<group>"; };
+		2BEDCE54265352F70055870A /* OCRResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OCRResult.h; path = AcessoBio/OCRResult.h; sourceTree = "<group>"; };
+		2BEDCE55265352F70055870A /* DocumentInsertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DocumentInsertView.h; path = AcessoBio/DocumentInsertView.h; sourceTree = "<group>"; };
+		2BEDCE56265352F70055870A /* FixedValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FixedValues.h; path = AcessoBio/FixedValues.h; sourceTree = "<group>"; };
+		2BEDCE57265352F70055870A /* LivenessXResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LivenessXResult.h; path = AcessoBio/LivenessXResult.h; sourceTree = "<group>"; };
+		2BEDCE58265352F70055870A /* CameraDocumentResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraDocumentResult.h; path = AcessoBio/CameraDocumentResult.h; sourceTree = "<group>"; };
+		2BEDCE59265352F70055870A /* CameraFaceResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraFaceResult.h; path = AcessoBio/CameraFaceResult.h; sourceTree = "<group>"; };
+		2BEDCE5A265352F70055870A /* UIColorExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIColorExtensions.h; path = AcessoBio/UIColorExtensions.h; sourceTree = "<group>"; };
+		2BEDCE5B265352F70055870A /* CreateProcess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateProcess.h; path = AcessoBio/CreateProcess.h; sourceTree = "<group>"; };
+		2BEDCE5C265352F70055870A /* FacematchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FacematchResult.h; path = AcessoBio/FacematchResult.h; sourceTree = "<group>"; };
+		2BEDCE5D265352F70055870A /* UIImageUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIImageUtils.h; path = AcessoBio/UIImageUtils.h; sourceTree = "<group>"; };
+		2BEDCE5E265352F70055870A /* CameraMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraMain.h; path = AcessoBio/CameraMain.h; sourceTree = "<group>"; };
+		2BEDCE5F265352F70055870A /* PopUpValidationLiveness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PopUpValidationLiveness.h; path = AcessoBio/PopUpValidationLiveness.h; sourceTree = "<group>"; };
+		2BEDCE60265352F70055870A /* CameraFaceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraFaceView.h; path = AcessoBio/CameraFaceView.h; sourceTree = "<group>"; };
+		2BEDCE61265352F70055870A /* UIViewWithHole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIViewWithHole.h; path = AcessoBio/UIViewWithHole.h; sourceTree = "<group>"; };
+		2BEDCE62265352F70055870A /* ValidateLiveness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ValidateLiveness.h; path = AcessoBio/ValidateLiveness.h; sourceTree = "<group>"; };
+		2BEDCE63265352F70055870A /* LivenessXView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LivenessXView.h; path = AcessoBio/LivenessXView.h; sourceTree = "<group>"; };
 		97E59BE0256714BD0090575A /* ic_takepicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_takepicture.png; sourceTree = "<group>"; };
 		E63F9B1025AE59B700F436D2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E669E3EF2469922800110BAC /* AcessoBioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcessoBioManager.m; sourceTree = "<group>"; };
@@ -125,6 +142,23 @@
 		16DBCD582461ED960040D4E8 = {
 			isa = PBXGroup;
 			children = (
+				2BEDCE58265352F70055870A /* CameraDocumentResult.h */,
+				2BEDCE59265352F70055870A /* CameraFaceResult.h */,
+				2BEDCE60265352F70055870A /* CameraFaceView.h */,
+				2BEDCE5E265352F70055870A /* CameraMain.h */,
+				2BEDCE5B265352F70055870A /* CreateProcess.h */,
+				2BEDCE55265352F70055870A /* DocumentInsertView.h */,
+				2BEDCE5C265352F70055870A /* FacematchResult.h */,
+				2BEDCE56265352F70055870A /* FixedValues.h */,
+				2BEDCE57265352F70055870A /* LivenessXResult.h */,
+				2BEDCE63265352F70055870A /* LivenessXView.h */,
+				2BEDCE54265352F70055870A /* OCRResult.h */,
+				2BEDCE5F265352F70055870A /* PopUpValidationLiveness.h */,
+				2BEDCE5A265352F70055870A /* UIColorExtensions.h */,
+				2BEDCE5D265352F70055870A /* UIImageUtils.h */,
+				2BEDCE61265352F70055870A /* UIViewWithHole.h */,
+				2BEDCE62265352F70055870A /* ValidateLiveness.h */,
+				2BEDCE50265350E60055870A /* AcessoBioManager.h */,
 				16DBCD642461ED970040D4E8 /* AcessoBio */,
 				16DBCD632461ED970040D4E8 /* Products */,
 				E6CE357225ACC0DF004CCD29 /* Frameworks */,
@@ -213,24 +247,24 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E669E4562469C20F00110BAC /* CreateProcess.h in Headers */,
-				E669E3F92469922900110BAC /* CameraFaceView.h in Headers */,
-				16DBCD7D2461EE3C0040D4E8 /* ValidateLiveness.h in Headers */,
-				E669E3F82469922900110BAC /* LivenessXView.h in Headers */,
-				E669E4582469C30B00110BAC /* FixedValues.h in Headers */,
+				E669E3F62469922900110BAC /* AcessoBioManager.h in Headers */,
+				16DBCD672461ED970040D4E8 /* AcessoBio.h in Headers */,
 				E69DB93024E1E0FC001A1C2A /* OCRResult.h in Headers */,
+				E69DB92B24E1E0BD001A1C2A /* DocumentInsertView.h in Headers */,
+				E669E4582469C30B00110BAC /* FixedValues.h in Headers */,
+				E669E4512469BA6F00110BAC /* LivenessXResult.h in Headers */,
 				E6D86EAF24E087DE00B24B12 /* CameraDocumentResult.h in Headers */,
 				E669E3FE2469928800110BAC /* CameraFaceResult.h in Headers */,
 				16DBCD822461EE3C0040D4E8 /* UIColorExtensions.h in Headers */,
-				E669E3F62469922900110BAC /* AcessoBioManager.h in Headers */,
-				E69DB92B24E1E0BD001A1C2A /* DocumentInsertView.h in Headers */,
-				16DBCD7F2461EE3C0040D4E8 /* UIImageUtils.h in Headers */,
+				E669E4562469C20F00110BAC /* CreateProcess.h in Headers */,
 				E69DB93524E20021001A1C2A /* FacematchResult.h in Headers */,
-				16DBCD672461ED970040D4E8 /* AcessoBio.h in Headers */,
+				16DBCD7F2461EE3C0040D4E8 /* UIImageUtils.h in Headers */,
 				16DBCD862461EE3C0040D4E8 /* CameraMain.h in Headers */,
 				E6FDF4A72469CCC300A8D34D /* PopUpValidationLiveness.h in Headers */,
+				E669E3F92469922900110BAC /* CameraFaceView.h in Headers */,
 				16DBCD812461EE3C0040D4E8 /* UIViewWithHole.h in Headers */,
-				E669E4512469BA6F00110BAC /* LivenessXResult.h in Headers */,
+				16DBCD7D2461EE3C0040D4E8 /* ValidateLiveness.h in Headers */,
+				E669E3F82469922900110BAC /* LivenessXView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +484,7 @@
 		16DBCD6B2461ED970040D4E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COREML_CODEGEN_LANGUAGE = Automatic;
 				COREML_CODEGEN_SWIFT_GLOBAL_MODULE = NO;
@@ -485,6 +520,7 @@
 		16DBCD6C2461ED970040D4E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COREML_CODEGEN_LANGUAGE = Automatic;
 				COREML_CODEGEN_SWIFT_GLOBAL_MODULE = NO;

@@ -200,7 +200,7 @@
     [self showHUB];
     
     NSDictionary *dict = @{
-        @"type": [NSString stringWithFormat:@"%lu", self.type],
+        @"type": [NSString stringWithFormat:@"%ld", (long)self.type],
         @"base64": base64
     };
     
@@ -246,14 +246,17 @@
             id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
             if([json isKindOfClass:[NSDictionary class]]) {
-                NSDictionary *error = [json valueForKey:@"Error"];
-                NSString *description = [error valueForKey:@"Description"];
-                NSNumber * Code = [error valueForKey:@"Code"] ;
                 
-                [self.acessoBioManager onErrorFacematch:[self strErrorFormatted:@"ocr" description:[NSString stringWithFormat:@"Code: %@ - %@", Code, description ]]];
+                NSDictionary *error = [json valueForKey:@"Error"];
+                NSString *Description = [error valueForKey:@"Description"];
+                NSInteger Code = [[error valueForKey:@"Code"] integerValue];
+                
+                [self.acessoBioManager onErrorOCR:[[ErrorBio alloc]initCode:Code method:@"ocr" description:Description]];
                 
             }else{
-                [self.acessoBioManager onErrorFacematch:[self strErrorFormatted:@"ocr" description:@"Verifique sua url de conexão, apikey e token. Se persistir, entre em contato com a equipe da unico."]];
+                
+                [self.acessoBioManager onErrorOCR:[[ErrorBio alloc]initCode:401 method:@"ocr" description:self->unauthorized_error_bio]];
+                
             }
             
             [self exitError];
@@ -312,13 +315,14 @@
             
             if([json isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *error = [json valueForKey:@"Error"];
-                NSString *description = [error valueForKey:@"Description"];
-                NSNumber * Code = [error valueForKey:@"Code"] ;
-                
-                [self.acessoBioManager onErrorFacematch:[self strErrorFormatted:@"facematch" description:[NSString stringWithFormat:@"Code: %@ - %@", Code, description ]]];
+                NSString *Description = [error valueForKey:@"Description"];
+                NSInteger  Code = [[error valueForKey:@"Code"] integerValue];
+            
+                [self.acessoBioManager onErrorFacematch:[[ErrorBio alloc]initCode:Code method:@"facematch" description:Description]];
                 
             }else{
-                [self.acessoBioManager onErrorFacematch:[self strErrorFormatted:@"facematch" description:@"Verifique sua url de conexão, apikey e token. Se persistir, entre em contato com a equipe da unico."]];
+                
+                [self.acessoBioManager onErrorFacematch:[[ErrorBio alloc]initCode:401 method:@"facematch" description:self->unauthorized_error_bio]];
             }
             
             [self exitError];

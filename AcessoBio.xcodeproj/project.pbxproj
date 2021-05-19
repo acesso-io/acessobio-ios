@@ -18,6 +18,8 @@
 		16DBCD822461EE3C0040D4E8 /* UIColorExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD752461EE3B0040D4E8 /* UIColorExtensions.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		16DBCD832461EE3C0040D4E8 /* UIColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DBCD762461EE3B0040D4E8 /* UIColorExtensions.m */; platformFilter = ios; };
 		16DBCD862461EE3C0040D4E8 /* CameraMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DBCD792461EE3B0040D4E8 /* CameraMain.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		2BDFCFE0264EC2AC009E7AB0 /* ErrorBio.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BDFCFDE264EC2AC009E7AB0 /* ErrorBio.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		2BDFCFE1264EC2AC009E7AB0 /* ErrorBio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFCFDF264EC2AC009E7AB0 /* ErrorBio.m */; };
 		97E59BE1256714BD0090575A /* ic_takepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E59BE0256714BD0090575A /* ic_takepicture.png */; };
 		E63F9B1125AE59B700F436D2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63F9B1025AE59B700F436D2 /* WebKit.framework */; };
 		E669E3F52469922900110BAC /* AcessoBioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E669E3EF2469922800110BAC /* AcessoBioManager.m */; platformFilter = ios; };
@@ -67,6 +69,8 @@
 		16DBCD762461EE3B0040D4E8 /* UIColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtensions.m; sourceTree = "<group>"; };
 		16DBCD782461EE3B0040D4E8 /* CenterModelCrop.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CenterModelCrop.mlmodel; sourceTree = "<group>"; };
 		16DBCD792461EE3B0040D4E8 /* CameraMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraMain.h; sourceTree = "<group>"; };
+		2BDFCFDE264EC2AC009E7AB0 /* ErrorBio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorBio.h; sourceTree = "<group>"; };
+		2BDFCFDF264EC2AC009E7AB0 /* ErrorBio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorBio.m; sourceTree = "<group>"; };
 		2BEDCE50265350E60055870A /* AcessoBioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AcessoBioManager.h; path = AcessoBio/AcessoBioManager.h; sourceTree = "<group>"; };
 		2BEDCE54265352F70055870A /* OCRResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OCRResult.h; path = AcessoBio/OCRResult.h; sourceTree = "<group>"; };
 		2BEDCE55265352F70055870A /* DocumentInsertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DocumentInsertView.h; path = AcessoBio/DocumentInsertView.h; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				E6D86EAE24E087DE00B24B12 /* CameraDocumentResult.m */,
 				E69DB93324E20020001A1C2A /* FacematchResult.h */,
 				E69DB93424E20020001A1C2A /* FacematchResult.m */,
+				2BDFCFDE264EC2AC009E7AB0 /* ErrorBio.h */,
+				2BDFCFDF264EC2AC009E7AB0 /* ErrorBio.m */,
 			);
 			path = AcessoBio;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				E669E3F92469922900110BAC /* CameraFaceView.h in Headers */,
 				16DBCD812461EE3C0040D4E8 /* UIViewWithHole.h in Headers */,
 				16DBCD7D2461EE3C0040D4E8 /* ValidateLiveness.h in Headers */,
+				2BDFCFE0264EC2AC009E7AB0 /* ErrorBio.h in Headers */,
 				E669E3F82469922900110BAC /* LivenessXView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +302,7 @@
 		16DBCD592461ED970040D4E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Matheus Domingos Acesso";
 				TargetAttributes = {
 					16DBCD612461ED970040D4E8 = {
@@ -345,6 +352,7 @@
 				E669E3F72469922900110BAC /* CameraFaceView.m in Sources */,
 				16DBCD7A2461EE3C0040D4E8 /* UIViewWithHole.m in Sources */,
 				16DBCD7B2461EE3C0040D4E8 /* CameraMain.m in Sources */,
+				2BDFCFE1264EC2AC009E7AB0 /* ErrorBio.m in Sources */,
 				E69DB92C24E1E0BD001A1C2A /* DocumentInsertView.m in Sources */,
 				E669E3F52469922900110BAC /* AcessoBioManager.m in Sources */,
 				16DBCD802461EE3C0040D4E8 /* UIImageUtils.m in Sources */,
@@ -391,6 +399,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -416,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -452,6 +461,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -471,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -489,18 +499,14 @@
 				COREML_CODEGEN_LANGUAGE = Automatic;
 				COREML_CODEGEN_SWIFT_GLOBAL_MODULE = NO;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GR7KL5JY22;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Firebase",
-					"$(PROJECT_DIR)/FirebaseMLVision/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AcessoBio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,9 +516,10 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.acesso.AcessoBio;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase/FirebaseMLVision/Frameworks";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -525,18 +532,14 @@
 				COREML_CODEGEN_LANGUAGE = Automatic;
 				COREML_CODEGEN_SWIFT_GLOBAL_MODULE = NO;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GR7KL5JY22;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Firebase",
-					"$(PROJECT_DIR)/FirebaseMLVision/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = AcessoBio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,9 +549,10 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.acesso.AcessoBio;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Firebase/FirebaseMLVision/Frameworks";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

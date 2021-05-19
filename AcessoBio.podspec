@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AcessoBio"
-  spec.version      = "1.2.4"
+  spec.version      = "1.2.5"
   spec.summary      = "Esta biblioteca visa implementar as soluções unico | check sob a plataforma iOS."
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/acesso-io/acessobio-ios.git", :tag => "1.2.4" }
+  spec.source       = { :git => "https://github.com/acesso-io/acessobio-ios.git", :tag => "1.2.5" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

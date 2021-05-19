@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CameraFaceView : CameraMain <AVCaptureVideoDataOutputSampleBufferDelegate> {
     
+    
     BOOL isSelfie;
     UIView *rectangle;
     UIView *rectangleTop;
@@ -191,7 +192,8 @@ NS_ASSUME_NONNULL_BEGIN
 
     BOOL isStartLuminositySensor;
     
-//    JGProgressHUD *HUD;
+    NSTimer *timerToTimoutFaceInference;
+    NSTimer *timerToTimoutProcess;
 
 }
 
@@ -225,18 +227,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSString *base64AwayWithoutSmilling;
 
-
 @property (strong, nonatomic) NSString *base64Center;
 @property (strong, nonatomic) NSString *base64Away;
 @property (strong, nonatomic) NSString *base64Closer;
-
-
 
 @property (strong, nonatomic) UIImage *imgCenter;
 @property (strong, nonatomic) UIImage *imgAway;
 @property (strong, nonatomic) UIImage *imgCloser;
 @property (strong, nonatomic) UIImage *imgAwayWithoutSmile;
-
 
 @property (assign, nonatomic) BOOL isFaceLiveness;
 
@@ -256,10 +254,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *APIKEY;
 @property (strong, nonatomic) NSString *TOKEN;
 
-
 @property (assign, nonatomic) BOOL isEnableAutoCapture;
 @property (assign, nonatomic) BOOL isEnableSmartCapture;
-
 
 @property (assign, nonatomic) BOOL isFacesCompareOneToOne;
 @property (strong, nonatomic) NSString *cpfToFacesCompare;
@@ -275,6 +271,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readwrite) LanguageOrigin language;
 @property (strong, nonatomic) NSString *versionRelease;
+
+@property (readwrite) double secondsTimeoutToInferenceFace;
+@property (readwrite) double secondsTimeoutProcess;
 
 @end
 

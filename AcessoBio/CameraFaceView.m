@@ -16,6 +16,7 @@ float topOffsetPercent_CameraFace = 30.0f;
 float sizeBetweenTopAndBottomPercent_CameraFace = 50.0f;
 float marginOfSides_CameraFace = 80.0f;
 
+
 @interface CameraFaceView ()
 
 @end
@@ -48,18 +49,52 @@ float marginOfSides_CameraFace = 80.0f;
     
     [self initialActionOfChangeState:NO];
     [self addFullBrightnessToScreen];
-    
+    [self triggerTimeoutProcess];
+    [self triggerTimeoutToFaceInference];
+        
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-
-    
-
+    [self invalidateAllTimers];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     
+}
+
+- (void)triggerTimeoutProcess {
+    timerToTimoutProcess = [NSTimer scheduledTimerWithTimeInterval: self.secondsTimeoutProcess
+                          target: self
+                          selector:@selector(closeTriggerTimeoutProcess)
+                          userInfo: nil repeats:NO];
+}
+
+- (void)triggerTimeoutToFaceInference {
+    timerToTimoutFaceInference = [NSTimer scheduledTimerWithTimeInterval: self.secondsTimeoutToInferenceFace
+                          target: self
+                          selector:@selector(closeTriggerTimeoutToFaceInference)
+                          userInfo: nil repeats:NO];
+}
+
+- (void)closeTriggerTimeoutProcess {
+    [self.acessiBioManager systemClosedCameraTimeoutProcess];
+    [self exit];
+}
+
+- (void)closeTriggerTimeoutToFaceInference {
+    [self.acessiBioManager systemClosedCameraTimeoutFaceInference];
+    [self disableSmartCamera];
+}
+
+- (void)disableSmartCamera {
+    _isEnableAutoCapture = NO;
+    _isEnableSmartCapture = NO;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.btTakePic setAlpha:1];
+        [self.btTakePic setEnabled:YES];
+    });
 }
 
 #pragma mark - Close
@@ -81,9 +116,8 @@ float marginOfSides_CameraFace = 80.0f;
 
 - (void)close{
     [self.acessiBioManager userClosedCameraManually];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self exit];
 }
-
 
 #pragma mark - Init variables
 
@@ -611,6 +645,11 @@ float marginOfSides_CameraFace = 80.0f;
                     
                     if([faceFeatures count] == 1) {
                         
+                        if(timerToTimoutFaceInference != nil) {
+                            [timerToTimoutFaceInference invalidate];
+                            timerToTimoutFaceInference = nil;
+                        }
+                        
                         self->countNoFace = 0;
                         
                         CIFaceFeature *face = [faceFeatures firstObject];
@@ -1017,6 +1056,16 @@ float marginOfSides_CameraFace = 80.0f;
         timerToTakeAwayPhoto = nil;
     }
     
+    if(timerToTimoutFaceInference != nil) {
+        [timerToTimoutFaceInference invalidate];
+        timerToTimoutFaceInference = nil;
+    }
+    
+    if(timerToTimoutProcess != nil) {
+        [timerToTimoutProcess invalidate];
+        timerToTimoutProcess = nil;
+    }
+    
     [self invalidateTimerToSmiling];
     
 }
@@ -1199,14 +1248,15 @@ float marginOfSides_CameraFace = 80.0f;
             if([result objectForKey:@"Error"]) {
                 
                 NSDictionary *error = [response objectForKey:@"Error"];
-                
+        
                 int Code = [[error valueForKey:@"Code"] intValue];
-                
-                [self.acessiBioManager onErrorCameraFace:[self strErrorFormatted:@"createProcessV3" description:[error valueForKey:@"Description"]]];
+                NSString * Description = [error valueForKey:@"Description"];
+            
+                [self.acessiBioManager onErrorCameraFace:[[ErrorBio alloc]initCode:Code method:@"createProcessV3" description:Description]];
                 
                 dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
                     dispatch_async(dispatch_get_main_queue(), ^(void){
-                            [self exitError];
+                            [self exit];
                     });
                 });
                 
@@ -1241,14 +1291,19 @@ float marginOfSides_CameraFace = 80.0f;
             id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
             if([json isKindOfClass:[NSDictionary class]]) {
+                
                 NSDictionary *error = [json valueForKey:@"Error"];
-                NSString *description = [error valueForKey:@"Description"];
-                [self.acessiBioManager onErrorCameraFace:[self strErrorFormatted:@"createProcessV3" description:description]];
+                NSString *Description = [error valueForKey:@"Description"];
+               
+                [self.acessiBioManager onErrorCameraFace:[[ErrorBio alloc]initCode:400 method:@"createProcessV3" description:Description]];
+                
             }else{
-                [self.acessiBioManager onErrorCameraFace:[self strErrorFormatted:@"createProcessV3" description:@"Verifique sua url de conexão, apikey e token. Se persistir, entre em contato com a equipe da unico."]];
+                
+                [self.acessiBioManager onErrorCameraFace:[[ErrorBio alloc]initCode:401 method:@"createProcessV3" description:self->unauthorized_error_bio]];
+                
             }
             
-            [self exitError];
+            [self exit];
             
         }
         
@@ -1313,17 +1368,20 @@ float marginOfSides_CameraFace = 80.0f;
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
                 if([json isKindOfClass:[NSDictionary class]]) {
+                   
                     NSDictionary *error = [json valueForKey:@"Error"];
-                    NSString *description = [error valueForKey:@"Description"];
-                    NSNumber * Code = [error valueForKey:@"Code"] ;
+                    NSString *Description = [error valueForKey:@"Description"];
+                    NSInteger Code = [[error valueForKey:@"Code"] integerValue];
                     
-                    [self.acessiBioManager onErrorFacesCompare:[self strErrorFormatted:@"facesCompare" description:[NSString stringWithFormat:@"Code: %@ - %@", Code, description ]]];
+                    [self.acessiBioManager onErrorFacesCompare:[[ErrorBio alloc]initCode:Code method:@"facesCompare" description:Description]];
                     
                 }else{
-                    [self.acessiBioManager onErrorFacesCompare:[self strErrorFormatted:@"facesCompare" description:@"Verifique sua url de conexão, apikey e token. Se persistir, entre em contato com a equipe da unico."]];
+                    
+                    [self.acessiBioManager onErrorFacesCompare:[[ErrorBio alloc]initCode:401 method:@"facesCompare" description:self->unauthorized_error_bio]];
+                    
                 }
                 
-                [self exitError];
+                [self exit];
                 
             }
             
@@ -1441,13 +1499,9 @@ float marginOfSides_CameraFace = 80.0f;
     return retVal;
 }
 
-- (void)exitError {
+- (void)exit {
     [self invalidateAllTimers];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (NSString *)strErrorFormatted: (NSString *)method description: (NSString *)description {
-    return [NSString stringWithFormat:@"%@ - %@", method, description];
 }
 
 @end

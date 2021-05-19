@@ -25,12 +25,25 @@
         token = pToken;
         isAutoCapture = YES;
         isSmartCamera = YES;
-        [self setDefaultOrigin];
-        [self setDefaultVersionRelease];
+        [self setDefaults];
+
     }
     
     return self;
     
+}
+
+#pragma mark - Defaults
+
+- (void)setDefaults {
+    hasImplementationError = NO;
+    defaultTimeoutProcess = 40;
+    defaultTimeoutToFaceInference = 15;
+    minimumTimeoutToFaceInference = 5;
+    [self setDefaultOrigin];
+    [self setDefaultVersionRelease];
+    [self setDefaultTimeoutProcess];
+    [self setDefaultTimeoutFaceInference];
 }
 
 #pragma mark - Origin and Version
@@ -41,6 +54,32 @@
 
 - (void)setDefaultVersionRelease {
     versionRelease = @"1.2.1.1";
+}
+
+#pragma mark - Timeout
+
+- (void)setTimeoutToFaceInference : (double)seconds{
+    if(seconds <= minimumTimeoutToFaceInference) {
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setTimeoutToFaceInference" description:@"É necessário insirir um valor maior que 5 segundos no método: setTimeoutToFaceInference."]];
+        return;
+    }
+    secondsTimeoutToFaceInference = seconds;
+}
+
+- (void)setTimeoutProcess: (double)seconds{
+    if(seconds <= defaultTimeoutProcess) {
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setTimeoutProcess" description:@"É necessário insirir um valor maior que 40 segundos no método: setTimeoutProcess."]];
+        return;
+    }
+    secondsTimeoutProcess = seconds;
+}
+
+- (void)setDefaultTimeoutProcess {
+    secondsTimeoutProcess = defaultTimeoutProcess;
+}
+
+- (void)setDefaultTimeoutFaceInference {
+    secondsTimeoutToFaceInference = defaultTimeoutToFaceInference;
 }
 
 - (void)setLanguageOrigin: (LanguageOrigin)origin release: (NSString*)release{
@@ -74,10 +113,11 @@
         if([self verifyColorString:color]) {
             colorSilhoutteNeutral = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
 }
@@ -90,11 +130,10 @@
         if([self verifyColorString:color]) {
             colorSilhoutteSuccess = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
-    }
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];    }
     
 }
 
@@ -106,12 +145,13 @@
         if([self verifyColorString:color]) {
             colorSilhoutteError = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
+        
     }
-    
     
 }
 
@@ -123,10 +163,11 @@
         if([self verifyColorString:color]) {
             colorBackground = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
+        
     }
     
 }
@@ -139,10 +180,9 @@
         if([self verifyColorString:color]) {
             colorBackgroundBoxStatus = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
-        }
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];        }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
 }
@@ -154,7 +194,7 @@
     }else if([color isKindOfClass:[NSString class]]) {
         colorTextBoxStatus = [UIColor colorWithHexString:color];
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
 }
@@ -167,10 +207,10 @@
         if([self verifyColorString:color]) {
             colorBackgroundPopupError = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
 }
@@ -184,10 +224,10 @@
         if([self verifyColorString:color]) {
             colorTextPopupError = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
 }
@@ -200,10 +240,10 @@
         if([self verifyColorString:color]) {
             colorBackgroundButtonPopupError = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
 }
@@ -216,10 +256,10 @@
         if([self verifyColorString:color]) {
             colorTitleButtonPopupError = [UIColor colorWithHexString:color];
         }else{
-            [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+            [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
     }else{
-        [self onErrorAcessoBioManager:@"Formato de cor não permitido."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
     }
     
     
@@ -283,7 +323,10 @@
     }
     
 }
+ 
  */
+
+
 - (void)openCameraFace {
     
     if ([self verifyTarget]) {
@@ -303,13 +346,11 @@
         [cView setColorTextBoxStatus:colorTextBoxStatus];
         [cView setLanguage:language];
         [cView setVersionRelease:versionRelease];
-        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
-        [nav setNavigationBarHidden:YES animated:NO];
-        [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-        [viewController presentViewController:nav animated:YES completion:nil];
+        [cView setSecondsTimeoutProcess:secondsTimeoutProcess];
+        [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+        [self presentView:cView];
         
     }
-    
     
 }
 
@@ -339,10 +380,9 @@
             [cView setColorTextBoxStatus:colorTextBoxStatus];
             [cView setLanguage:language];
             [cView setVersionRelease:versionRelease];
-            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
-            [nav setNavigationBarHidden:YES animated:NO];
-            [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-            [viewController presentViewController:nav animated:YES completion:nil];
+            [cView setSecondsTimeoutProcess:secondsTimeoutProcess];
+            [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+            [self presentView:cView];
             
         }
     }
@@ -373,10 +413,9 @@
             [cView setIsEnableSmartCapture:isSmartCamera];
             [cView setLanguage:language];
             [cView setVersionRelease:versionRelease];
-            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
-            [nav setNavigationBarHidden:YES animated:NO];
-            [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-            [viewController presentViewController:nav animated:YES completion:nil];
+            [cView setSecondsTimeoutProcess:secondsTimeoutProcess];
+            [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+            [self presentView:cView];
             
         }
     }
@@ -398,10 +437,7 @@
     }
     
     dView.acessoBioManager = self;
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:dView];
-    [nav setNavigationBarHidden:YES animated:NO];
-    [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-    [viewController presentViewController:nav animated:YES completion:nil];
+    [self presentView:cView];
     
 }
 
@@ -424,11 +460,8 @@
     }else{
         dView.type = 999;
     }
-    
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:dView];
-    [nav setNavigationBarHidden:YES animated:NO];
-    [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-    [viewController presentViewController:nav animated:YES completion:nil];
+    [self presentView:cView];
+
     
 }
 
@@ -463,11 +496,8 @@
     }else{
         dView.type = 999;
     }
-    
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:dView];
-    [nav setNavigationBarHidden:YES animated:NO];
-    [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-    [viewController presentViewController:nav animated:YES completion:nil];
+    [self presentView:dView];
+
     
 }
 
@@ -484,11 +514,17 @@
     [cView setCpfToFacesCompare:cpf];
     [cView setLanguage:language];
     [cView setVersionRelease:versionRelease];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:cView];
-    [nav setNavigationBarHidden:YES animated:NO];
-    [nav setModalPresentationStyle:UIModalPresentationFullScreen];
-    [viewController presentViewController:nav animated:YES completion:nil];
+    [self presentView:cView];
     
+}
+
+- (void)presentView:(UIViewController *)vc {
+    if(!hasImplementationError) {
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+        [nav setNavigationBarHidden:YES animated:NO];
+        [nav setModalPresentationStyle:UIModalPresentationFullScreen];
+        [viewController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 #pragma mark - Instances
@@ -532,7 +568,9 @@
     if (@available(iOS 11.0, *)) {
         return YES;
     }else{
-        [self onErrorAcessoBioManager:@"Este método está disponível a partir do iOS 11."];
+        
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyTarget" description:@"Este método está disponível a partir do iOS 11."]];
+            
         return NO;
     }
 }
@@ -553,20 +591,21 @@
     NSURL *urlToValidate = [NSURL URLWithString:url];
     if (!urlToValidate || !urlToValidate.scheme || !urlToValidate.host)
     {
-        [self onErrorAcessoBioManager:@"A URL fornecida é inválida."];
+        
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"A URL fornecida é inválida."]];
         return NO;
     }else if(apikey.length == 0) {
-        [self onErrorAcessoBioManager:@"A APIKEY fornecida está vazia."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"A APIKEY fornecida está vazia."]];
         return NO;
     }else if(token.length == 0) {
-        [self onErrorAcessoBioManager:@"O TOKEN fornecido está vazio."];
+        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"O TOKEN fornecido está vazio."]];
+        
         return NO;
     }
     
     return YES;
     
 }
-
 
 
 #pragma mark - Callbacks
@@ -577,6 +616,18 @@
         [self.delegate userClosedCameraManually];
     }
     
+}
+
+- (void)systemClosedCameraTimeoutProcess {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(systemClosedCameraTimeoutProcess)]) {
+        [self.delegate systemClosedCameraTimeoutProcess];
+    }
+}
+
+- (void)systemClosedCameraTimeoutFaceInference {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(systemClosedCameraTimeoutFaceInference)]) {
+        [self.delegate systemClosedCameraTimeoutFaceInference];
+    }
 }
 
 /** * Deprecated
@@ -620,7 +671,7 @@
     
 }
 
-- (void)onErrorCameraFace:(NSString *)error {
+- (void)onErrorCameraFace:(ErrorBio *)error {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorCameraFace:)]) {
         [self.delegate onErrorCameraFace:error];
@@ -648,7 +699,7 @@
     
 }
 
-- (void)onErrorCameraDocument:(NSString *)error{
+- (void)onErrorCameraDocument:(ErrorBio *)error{
     if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorCameraDocument:)]) {
         [self.delegate onErrorCameraDocument:error];
     }else{
@@ -675,7 +726,7 @@
     
 }
 
-- (void)onErrorOCR: (NSString *)error {
+- (void)onErrorOCR: (ErrorBio *)error {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorOCR:)]) {
         [self.delegate onErrorOCR:error];
@@ -693,7 +744,7 @@
     
 }
 
-- (void)onErrorFacematch: (NSString *)error {
+- (void)onErrorFacematch: (ErrorBio *)error {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorFacematch:)]) {
         [self.delegate onErrorFacematch:error];
@@ -711,7 +762,7 @@
     
 }
 
-- (void)onErrorFacesCompare:(NSString *)error {
+- (void)onErrorFacesCompare:(ErrorBio *)error {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorFacesCompare:)]) {
         [self.delegate onErrorFacesCompare:error];
@@ -721,16 +772,14 @@
     
 }
 
-- (void)onErrorAcessoBioManager:(NSString *)error {
-    
+- (void)onErrorAcessoBioManager:(ErrorBio *)error {
+    hasImplementationError = YES;
     if (self.delegate && [self.delegate respondsToSelector:@selector(onErrorAcessoBioManager:)]) {
         [self.delegate onErrorAcessoBioManager:error];
     }else{
         NSLog(@"Método onErrorAcessoBioManager não implementado. Implemente-o e tente novamente...");
     }
-    
 }
-
 
 
 @end

@@ -35,8 +35,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
+
 @interface CameraMain : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate> {
     
+    NSString *unauthorized_error_bio;
     
 }
 

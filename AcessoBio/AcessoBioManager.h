@@ -14,6 +14,7 @@
 #import "FacematchResult.h"
 #import "CreateProcess.h"
 #import "CreateProcess.h"
+#import "ErrorBio.h"
 
 @class LivenessXView;
 @class CameraFaceView;
@@ -33,27 +34,23 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     ReactNative
 };
 
-
-
 @protocol AcessoBioDelegate <NSObject>
 
 @optional
 - (BOOL)cameraBioShouldAutoCapture;
 - (BOOL)cameraBioShouldCountdow;
 
-- (void)userClosedCameraManually;
-
 - (void)onSuccesCameraDocument: (CameraDocumentResult *)result;
-- (void)onErrorCameraDocument: (NSString *)error;
+- (void)onErrorCameraDocument: (ErrorBio *)error;
 
 - (void)onSuccessOCR: (OCRResult *)result;
-- (void)onErrorOCR: (NSString *)error;
+- (void)onErrorOCR: (ErrorBio *)error;
 
 - (void)onSuccessFacematch: (FacematchResult *)result;
-- (void)onErrorFacematch: (NSString *)error;
+- (void)onErrorFacematch: (ErrorBio *)error;
 
 - (void)onSuccessFacesCompare:(BOOL)status;
-- (void)onErrorFacesCompare:(NSString *)error;
+- (void)onErrorFacesCompare:(ErrorBio *)error;
 
 /** Deprecated
  - (void)onSuccesLivenessX: (LivenessXResult *)result;
@@ -61,11 +58,13 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
  */
 
 - (void)onSuccesCameraFace: (CameraFaceResult *)result;
-- (void)onErrorCameraFace: (NSString *)error;
+- (void)onErrorCameraFace: (ErrorBio *)error;
 
 @required
-- (void)onErrorAcessoBioManager: (NSString *)error;
-
+- (void)onErrorAcessoBioManager: (ErrorBio *)error;
+- (void)userClosedCameraManually;
+- (void)systemClosedCameraTimeoutProcess;
+- (void)systemClosedCameraTimeoutFaceInference;
 
 @end
 
@@ -103,6 +102,14 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     UIColor *colorTitleButtonPopupError;
     UIImage *imageIconPopupError;
     
+    double secondsTimeoutToFaceInference;
+    double secondsTimeoutProcess;
+    double defaultTimeoutProcess;
+    double defaultTimeoutToFaceInference;
+    double minimumTimeoutToFaceInference;
+
+    BOOL hasImplementationError;
+    
 }
 
 @property (nonatomic, weak) id <AcessoBioDelegate> delegate;
@@ -136,6 +143,11 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 - (void)setColorTitleButtonPopupError : (id)color;
 - (void)setImageIconPopupError: (id)image;
 
+#pragma mark - Timeouts
+
+- (void)setTimeoutToFaceInference : (double)seconds;
+- (void)setTimeoutProcess: (double)seconds;
+
 #pragma mark - Camera
 
 /** Deprecated
@@ -150,7 +162,7 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 
 - (void)openCameraDocuments : (DocumentType) documentType;
 - (void)openCameraDocumentOCR : (DocumentType) documentType;
-- (void)onErrorCameraDocument: (NSString *)error;
+- (void)onErrorCameraDocument: (ErrorBio *)error;
 - (void)openCameraDocumentFacematch : (DocumentType) documentType;
 
 - (void)facesCompare: (NSString *)cpf;
@@ -161,7 +173,7 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
  -(void)onErrorLivenessX: (NSString *)error;
  */
 - (void)onSuccesCameraFace: (CameraFaceResult *)result;
-- (void)onErrorCameraFace: (NSString *)error;
+- (void)onErrorCameraFace: (ErrorBio *)error;
 
 
 

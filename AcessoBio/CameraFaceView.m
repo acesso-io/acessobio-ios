@@ -159,7 +159,7 @@ float marginOfSides_CameraFace = 80.0f;
         if(self.colorBackground != nil) {
             colorBackground = self.colorBackground;
         }
-        [vFlash setBackgroundColor:colorBackground];
+//        [vFlash setBackgroundColor:colorBackground];
         [self.view addSubview:vFlash];
         
         spinFlash = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -170,11 +170,11 @@ float marginOfSides_CameraFace = 80.0f;
             [spinFlash setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
         }
         
-        UIColor *colorSpin  = [UIColor whiteColor];
-        if(self.colorSilhoutteNeutral != nil) {
-            colorSpin = self.colorSilhoutteNeutral;
-        }
-        [spinFlash setColor:colorSpin];
+//        UIColor *colorSpin  = [UIColor whiteColor];
+//        if(self.colorSilhoutteNeutral != nil) {
+//            colorSpin = self.colorSilhoutteNeutral;
+//        }
+        [spinFlash setColor:colorBackground];
         spinFlash.center = self.view.center;
         [spinFlash startAnimating];
         [self.view addSubview:spinFlash];

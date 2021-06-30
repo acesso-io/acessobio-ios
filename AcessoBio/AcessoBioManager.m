@@ -23,7 +23,7 @@
         url = pUrl;
         apikey = pApikey;
         token = pToken;
-        isAutoCapture = YES;
+        _isAutoCapture = YES;
         _isSmartCamera = YES;
         [self setDefaults];
 
@@ -91,7 +91,7 @@
 #pragma mark - Custom
 
 - (void)disableAutoCapture {
-    isAutoCapture = NO;
+    _isAutoCapture = NO;
 }
 
 - (void)disableSmartCamera {
@@ -99,7 +99,7 @@
 }
 
 - (void)enableAutoCapture {
-    isAutoCapture = YES;
+    _isAutoCapture = YES;
 }
 
 - (void)enableSmartCamera {
@@ -337,7 +337,7 @@
         [cView setURL:url];
         [cView setAPIKEY:apikey];
         [cView setTOKEN:token];
-        [cView setIsEnableAutoCapture:isAutoCapture];
+        [cView setIsEnableAutoCapture:_isAutoCapture];
         [cView setIsEnableSmartCapture:_isSmartCamera];
         [cView setColorSilhoutteNeutral:colorSilhoutteNeutral];
         [cView setColorSilhoutteError:colorSilhoutteError];
@@ -371,7 +371,7 @@
             [cView setURL:url];
             [cView setAPIKEY:apikey];
             [cView setTOKEN:token];
-            [cView setIsEnableAutoCapture:isAutoCapture];
+            [cView setIsEnableAutoCapture:_isAutoCapture];
             [cView setIsEnableSmartCapture:_isSmartCamera];
             [cView setColorSilhoutteNeutral:colorSilhoutteNeutral];
             [cView setColorSilhoutteError:colorSilhoutteError];
@@ -410,7 +410,7 @@
             [cView setURL:url];
             [cView setAPIKEY:apikey];
             [cView setTOKEN:token];
-            [cView setIsEnableAutoCapture:isAutoCapture];
+            [cView setIsEnableAutoCapture:_isAutoCapture];
             [cView setIsEnableSmartCapture:_isSmartCamera];
             [cView setLanguage:language];
             [cView setVersionRelease:versionRelease];
@@ -471,7 +471,7 @@
     isFacematchProcess = YES;
     documentTypeFacematch = documentType;
     _isSmartCamera = NO;
-    isAutoCapture = NO;
+    _isAutoCapture = NO;
     
     [self openCameraFace];
     
@@ -509,7 +509,7 @@
     [cView setURL:url];
     [cView setAPIKEY:apikey];
     [cView setTOKEN:token];
-    [cView setIsEnableAutoCapture:isAutoCapture];
+    [cView setIsEnableAutoCapture:_isAutoCapture];
     [cView setIsEnableSmartCapture:_isSmartCamera];
     [cView setIsFacesCompareOneToOne:YES];
     [cView setCpfToFacesCompare:cpf];

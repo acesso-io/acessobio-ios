@@ -45,6 +45,23 @@
     XCTAssertEqualObjects(expectedValueAtSmartCamera, resultValurAtSmartCamera, "testing disable smart camera config");
 }
 
+- (void)testConfigAutoCapture {
+    NSNumber *expectedValueAtAutoCapture = [NSNumber numberWithBool:YES];
+    [self.acessoBioManager enableAutoCapture];
+    NSNumber *resultValueAtAutoCapture = [NSNumber
+       numberWithBool:self.acessoBioManager.isAutoCapture];
+    XCTAssertEqualObjects(expectedValueAtAutoCapture, resultValueAtAutoCapture, "testing enable auto capture config");
+    
+}
+
+- (void)testConfigDisableAutoCapture {
+    NSNumber *expectedValueAtAutoCapture = [NSNumber numberWithBool:NO];
+    [self.acessoBioManager disableAutoCapture];
+    NSNumber *resultValueAtAutoCapture = [NSNumber
+       numberWithBool:self.acessoBioManager.isAutoCapture];
+    XCTAssertEqualObjects(expectedValueAtAutoCapture, resultValueAtAutoCapture, "testing disable auto capture config");
+    
+}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

@@ -45,6 +45,7 @@
     XCTAssertEqualObjects(expectedValueAtSmartCamera, resultValurAtSmartCamera, "testing disable smart camera config");
 }
 
+
 /* This test covers hexa string color and the UIColor with RGB */
 - (void)testCustomSilhoutteNeutral {
 
@@ -53,7 +54,23 @@
     UIColor *resultValueStringColor = self.acessoBioManager.colorSilhoutteNeutral;
     //XCTAssertTrue([expectedValueAtSmartCamera isEqualToNumber:resultValurAtSmartCamera]);
     XCTAssertEqualObjects(expectedValueStringColor, resultValueStringColor, "testing custom color solhoutte neutral");
+}
+
+- (void)testConfigAutoCapture {
+    NSNumber *expectedValueAtAutoCapture = [NSNumber numberWithBool:YES];
+    [self.acessoBioManager enableAutoCapture];
+    NSNumber *resultValueAtAutoCapture = [NSNumber
+       numberWithBool:self.acessoBioManager.isAutoCapture];
+    XCTAssertEqualObjects(expectedValueAtAutoCapture, resultValueAtAutoCapture, "testing enable auto capture config");
     
+}
+
+- (void)testConfigDisableAutoCapture {
+    NSNumber *expectedValueAtAutoCapture = [NSNumber numberWithBool:NO];
+    [self.acessoBioManager disableAutoCapture];
+    NSNumber *resultValueAtAutoCapture = [NSNumber
+       numberWithBool:self.acessoBioManager.isAutoCapture];
+    XCTAssertEqualObjects(expectedValueAtAutoCapture, resultValueAtAutoCapture, "testing disable auto capture config");    
 }
 
 - (void)testPerformanceExample {

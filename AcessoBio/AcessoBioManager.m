@@ -109,10 +109,10 @@
 - (void)setColorSilhoutteNeutral: (id)color {
     
     if([color isKindOfClass:[UIColor class]]) {
-        colorSilhoutteNeutral = color;
+        _colorSilhoutteNeutral = color;
     }else if([color isKindOfClass:[NSString class]]) {
         if([self verifyColorString:color]) {
-            colorSilhoutteNeutral = [UIColor colorWithHexString:color];
+            _colorSilhoutteNeutral = [UIColor colorWithHexString:color];
         }else{
             [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setColorSilhoutteNeutral" description:@"Formato de cor não permitido."]];
         }
@@ -339,7 +339,7 @@
         [cView setTOKEN:token];
         [cView setIsEnableAutoCapture:isAutoCapture];
         [cView setIsEnableSmartCapture:_isSmartCamera];
-        [cView setColorSilhoutteNeutral:colorSilhoutteNeutral];
+        [cView setColorSilhoutteNeutral:_colorSilhoutteNeutral];
         [cView setColorSilhoutteError:colorSilhoutteError];
         [cView setColorSilhoutteSuccess:colorSilhoutteSuccess];
         [cView setColorBackground:colorBackground];
@@ -373,7 +373,7 @@
             [cView setTOKEN:token];
             [cView setIsEnableAutoCapture:isAutoCapture];
             [cView setIsEnableSmartCapture:_isSmartCamera];
-            [cView setColorSilhoutteNeutral:colorSilhoutteNeutral];
+            [cView setColorSilhoutteNeutral:_colorSilhoutteNeutral];
             [cView setColorSilhoutteError:colorSilhoutteError];
             [cView setColorSilhoutteSuccess:colorSilhoutteSuccess];
             [cView setColorBackground:colorBackground];

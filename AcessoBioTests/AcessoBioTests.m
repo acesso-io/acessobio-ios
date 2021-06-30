@@ -45,6 +45,16 @@
     XCTAssertEqualObjects(expectedValueAtSmartCamera, resultValurAtSmartCamera, "testing disable smart camera config");
 }
 
+/* This test covers hexa string color and the UIColor with RGB */
+- (void)testCustomSilhoutteNeutral {
+
+    UIColor *expectedValueStringColor = [UIColor colorNamed:@"#6959CD"];
+    [self.acessoBioManager setColorSilhoutteSuccess:nil];
+    UIColor *resultValueStringColor = self.acessoBioManager.colorSilhoutteNeutral;
+    //XCTAssertTrue([expectedValueAtSmartCamera isEqualToNumber:resultValurAtSmartCamera]);
+    XCTAssertEqualObjects(expectedValueStringColor, resultValueStringColor, "testing custom color solhoutte neutral");
+    
+}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

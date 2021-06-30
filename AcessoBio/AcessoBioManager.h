@@ -89,7 +89,6 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     DocumentType documentTypeFacematch;
     NSString * base64Facematch;
     
-    UIColor *colorSilhoutteNeutral;
     UIColor *colorSilhoutteSuccess;
     UIColor *colorSilhoutteError;
     UIColor *colorBackground;
@@ -131,7 +130,7 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 - (void)enableSmartCamera;
 @property (readonly) BOOL isSmartCamera;
 
-- (void)setColorSilhoutteNeutral: (id)color;
+@property (nonatomic, strong) UIColor *colorSilhoutteNeutral;
 - (void)setColorSilhoutteSuccess: (id)color;
 - (void)setColorSilhoutteError: (id)color;
 - (void)setColorBackground: (id)color;

@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AcessoBioTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>16DBCD612461ED970040D4E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BA988DF268CB51A00F72029</key>
 		<dict>
 			<key>primary</key>
 			<true/>

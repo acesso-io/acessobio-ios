@@ -24,6 +24,8 @@
 		2B150C1D265ED8C800C2D899 /* frame_rg_verso.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = E6D86EA524E07AAB00B24B12 /* frame_rg_verso.png */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2B150C1E265ED8C800C2D899 /* ic_close.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = E67B7A592471B9CD00918066 /* ic_close.png */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2B150C1F265ED8C800C2D899 /* ic_popup_face_error.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = E67B7A50247195C000918066 /* ic_popup_face_error.png */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		2BA988E3268CB51A00F72029 /* AcessoBioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA988E2268CB51A00F72029 /* AcessoBioTests.m */; };
+		2BA988E5268CB51A00F72029 /* AcessoBio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DBCD622461ED970040D4E8 /* AcessoBio.framework */; platformFilter = ios; };
 		2BDFCFE0264EC2AC009E7AB0 /* ErrorBio.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BDFCFDE264EC2AC009E7AB0 /* ErrorBio.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		2BDFCFE1264EC2AC009E7AB0 /* ErrorBio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDFCFDF264EC2AC009E7AB0 /* ErrorBio.m */; platformFilter = ios; };
 		E63F9B1125AE59B700F436D2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63F9B1025AE59B700F436D2 /* WebKit.framework */; };
@@ -52,6 +54,16 @@
 		E6FDF4A72469CCC300A8D34D /* PopUpValidationLiveness.h in Headers */ = {isa = PBXBuildFile; fileRef = E6FDF4A52469CCC300A8D34D /* PopUpValidationLiveness.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FDF4A82469CCC300A8D34D /* PopUpValidationLiveness.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FDF4A62469CCC300A8D34D /* PopUpValidationLiveness.m */; platformFilter = ios; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2BA988E6268CB51A00F72029 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16DBCD592461ED970040D4E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16DBCD612461ED970040D4E8;
+			remoteInfo = AcessoBio;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2B150C19265ED8AD00C2D899 /* CopyFiles */ = {
@@ -85,6 +97,9 @@
 		16DBCD752461EE3B0040D4E8 /* UIColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtensions.h; sourceTree = "<group>"; };
 		16DBCD762461EE3B0040D4E8 /* UIColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtensions.m; sourceTree = "<group>"; };
 		16DBCD792461EE3B0040D4E8 /* CameraMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraMain.h; sourceTree = "<group>"; };
+		2BA988E0268CB51A00F72029 /* AcessoBioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcessoBioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA988E2268CB51A00F72029 /* AcessoBioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcessoBioTests.m; sourceTree = "<group>"; };
+		2BA988E4268CB51A00F72029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BDFCFDE264EC2AC009E7AB0 /* ErrorBio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorBio.h; sourceTree = "<group>"; };
 		2BDFCFDF264EC2AC009E7AB0 /* ErrorBio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorBio.m; sourceTree = "<group>"; };
 		2BEDCE50265350E60055870A /* AcessoBioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AcessoBioManager.h; path = AcessoBio/AcessoBioManager.h; sourceTree = "<group>"; };
@@ -156,6 +171,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BA988DD268CB51A00F72029 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BA988E5268CB51A00F72029 /* AcessoBio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -180,6 +203,7 @@
 				2BEDCE62265352F70055870A /* ValidateLiveness.h */,
 				2BEDCE50265350E60055870A /* AcessoBioManager.h */,
 				16DBCD642461ED970040D4E8 /* AcessoBio */,
+				2BA988E1268CB51A00F72029 /* AcessoBioTests */,
 				16DBCD632461ED970040D4E8 /* Products */,
 				E6CE357225ACC0DF004CCD29 /* Frameworks */,
 			);
@@ -189,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				16DBCD622461ED970040D4E8 /* AcessoBio.framework */,
+				2BA988E0268CB51A00F72029 /* AcessoBioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,6 +266,15 @@
 				2BDFCFDF264EC2AC009E7AB0 /* ErrorBio.m */,
 			);
 			path = AcessoBio;
+			sourceTree = "<group>";
+		};
+		2BA988E1268CB51A00F72029 /* AcessoBioTests */ = {
+			isa = PBXGroup;
+			children = (
+				2BA988E2268CB51A00F72029 /* AcessoBioTests.m */,
+				2BA988E4268CB51A00F72029 /* Info.plist */,
+			);
+			path = AcessoBioTests;
 			sourceTree = "<group>";
 		};
 		E6CE357225ACC0DF004CCD29 /* Frameworks */ = {
@@ -312,6 +346,24 @@
 			productReference = 16DBCD622461ED970040D4E8 /* AcessoBio.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		2BA988DF268CB51A00F72029 /* AcessoBioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BA988E8268CB51A00F72029 /* Build configuration list for PBXNativeTarget "AcessoBioTests" */;
+			buildPhases = (
+				2BA988DC268CB51A00F72029 /* Sources */,
+				2BA988DD268CB51A00F72029 /* Frameworks */,
+				2BA988DE268CB51A00F72029 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BA988E7268CB51A00F72029 /* PBXTargetDependency */,
+			);
+			name = AcessoBioTests;
+			productName = AcessoBioTests;
+			productReference = 2BA988E0268CB51A00F72029 /* AcessoBioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -323,6 +375,9 @@
 				TargetAttributes = {
 					16DBCD612461ED970040D4E8 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					2BA988DF268CB51A00F72029 = {
+						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
@@ -340,12 +395,20 @@
 			projectRoot = "";
 			targets = (
 				16DBCD612461ED970040D4E8 /* AcessoBio */,
+				2BA988DF268CB51A00F72029 /* AcessoBioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		16DBCD602461ED970040D4E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BA988DE268CB51A00F72029 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -379,7 +442,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BA988DC268CB51A00F72029 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BA988E3268CB51A00F72029 /* AcessoBioTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BA988E7268CB51A00F72029 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 16DBCD612461ED970040D4E8 /* AcessoBio */;
+			targetProxy = 2BA988E6268CB51A00F72029 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		16DBCD682461ED970040D4E8 /* Debug */ = {
@@ -566,6 +646,42 @@
 			};
 			name = Release;
 		};
+		2BA988E9268CB51A00F72029 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GR7KL5JY22;
+				INFOPLIST_FILE = AcessoBioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "unico-io.AcessoBioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BA988EA268CB51A00F72029 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GR7KL5JY22;
+				INFOPLIST_FILE = AcessoBioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "unico-io.AcessoBioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -583,6 +699,15 @@
 			buildConfigurations = (
 				16DBCD6B2461ED970040D4E8 /* Debug */,
 				16DBCD6C2461ED970040D4E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BA988E8268CB51A00F72029 /* Build configuration list for PBXNativeTarget "AcessoBioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BA988E9268CB51A00F72029 /* Debug */,
+				2BA988EA268CB51A00F72029 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

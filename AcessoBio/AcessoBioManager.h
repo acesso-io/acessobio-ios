@@ -82,8 +82,6 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     NSString *apikey;
     NSString *token;
     
-    BOOL isAutoCapture;
-    BOOL isSmartCamera;
     
     BOOL isFacematchProcess;
     
@@ -127,9 +125,11 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 
 - (void)disableAutoCapture;
 - (void)disableSmartCamera;
+@property (readonly) BOOL isAutoCapture;
 
 - (void)enableAutoCapture;
 - (void)enableSmartCamera;
+@property (readonly) BOOL isSmartCamera;
 
 - (void)setColorSilhoutteNeutral: (id)color;
 - (void)setColorSilhoutteSuccess: (id)color;

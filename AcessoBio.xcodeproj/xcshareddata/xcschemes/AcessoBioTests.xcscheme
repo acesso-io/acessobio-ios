@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "16DBCD612461ED970040D4E8"
-               BuildableName = "AcessoBio.framework"
-               BlueprintName = "AcessoBio"
+               BlueprintIdentifier = "2BA988DF268CB51A00F72029"
+               BuildableName = "AcessoBioTests.xctest"
+               BlueprintName = "AcessoBioTests"
                ReferencedContainer = "container:AcessoBio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,6 +29,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       localizableStringsDataGatheringEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2BA988DF268CB51A00F72029"
+               BuildableName = "AcessoBioTests.xctest"
+               BlueprintName = "AcessoBioTests"
+               ReferencedContainer = "container:AcessoBio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -51,9 +61,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "16DBCD612461ED970040D4E8"
-            BuildableName = "AcessoBio.framework"
-            BlueprintName = "AcessoBio"
+            BlueprintIdentifier = "2BA988DF268CB51A00F72029"
+            BuildableName = "AcessoBioTests.xctest"
+            BlueprintName = "AcessoBioTests"
             ReferencedContainer = "container:AcessoBio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

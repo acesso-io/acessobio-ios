@@ -72,11 +72,11 @@
         [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setTimeoutProcess" description:@"É necessário insirir um valor maior que 40 segundos no método: setTimeoutProcess."]];
         return;
     }
-    secondsTimeoutSession = seconds;
+    _secondsTimeoutSession = seconds;
 }
 
 - (void)setDefaultTimeoutProcess {
-    secondsTimeoutSession = defaultTimeoutSession;
+    _secondsTimeoutSession = defaultTimeoutSession;
 }
 
 - (void)setDefaultTimeoutFaceInference {
@@ -347,7 +347,7 @@
         [cView setColorTextBoxStatus:colorTextBoxStatus];
         [cView setLanguage:language];
         [cView setVersionRelease:versionRelease];
-        [cView setSecondsTimeoutSession:secondsTimeoutSession];
+        [cView setSecondsTimeoutSession:_secondsTimeoutSession];
         [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
         [self presentView:cView];
         
@@ -381,7 +381,7 @@
             [cView setColorTextBoxStatus:colorTextBoxStatus];
             [cView setLanguage:language];
             [cView setVersionRelease:versionRelease];
-            [cView setSecondsTimeoutSession:secondsTimeoutSession];
+            [cView setSecondsTimeoutSession:_secondsTimeoutSession];
             [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
             [self presentView:cView];
             
@@ -414,7 +414,7 @@
             [cView setIsEnableSmartCapture:_isSmartCamera];
             [cView setLanguage:language];
             [cView setVersionRelease:versionRelease];
-            [cView setSecondsTimeoutSession:secondsTimeoutSession];
+            [cView setSecondsTimeoutSession:_secondsTimeoutSession];
             [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
             [self presentView:cView];
             
@@ -515,7 +515,7 @@
     [cView setCpfToFacesCompare:cpf];
     [cView setLanguage:language];
     [cView setVersionRelease:versionRelease];
-    [cView setSecondsTimeoutSession:secondsTimeoutSession];
+    [cView setSecondsTimeoutSession:_secondsTimeoutSession];
     [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
     [self presentView:cView];
     

@@ -89,15 +89,6 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     DocumentType documentTypeFacematch;
     NSString * base64Facematch;
     
-    UIColor *colorSilhoutteSuccess;
-    UIColor *colorSilhoutteError;
-    UIColor *colorBackground;
-    UIColor *colorBackgroundBoxStatus;
-    UIColor *colorTextBoxStatus;
-    UIColor *colorBackgroundPopupError;
-    UIColor *colorTextPopupError;
-    UIColor *colorBackgroundButtonPopupError;
-    UIColor *colorTitleButtonPopupError;
     UIImage *imageIconPopupError;
     
     double secondsTimeoutToFaceInference;

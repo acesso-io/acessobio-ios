@@ -75,14 +75,11 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     CameraFaceView *cView;
     DocumentInsertView *dView;
     
-    LanguageOrigin language;
     NSString *versionRelease;
     
     NSString *url;
     NSString *apikey;
     NSString *token;
-    
-//    BOOL isAutoCapture;
     
     BOOL isFacematchProcess;
     
@@ -91,7 +88,6 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     
     UIImage *imageIconPopupError;
     
-    double secondsTimeoutToFaceInference;
     double defaultTimeoutSession;
     double defaultTimeoutToFaceInference;
     double minimumTimeoutToFaceInference;
@@ -110,6 +106,7 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 #pragma mark - Language Origin
 
 - (void)setLanguageOrigin: (LanguageOrigin)origin release: (NSString*)release;
+@property (readonly) LanguageOrigin language;
 
 #pragma mark - Custom
 
@@ -139,6 +136,7 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 - (void)setTimeoutToFaceInference : (double)seconds;
 @property (readonly) double secondsTimeoutSession;
 - (void)setTimeoutSession: (double)seconds;
+@property (readonly) double secondsTimeoutToFaceInference;
 
 #pragma mark - Camera
 

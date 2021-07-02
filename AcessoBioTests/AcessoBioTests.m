@@ -68,6 +68,21 @@
     XCTAssertEqualObjects(expectedValueTimeoutSession, resultValueAtTimeoutSession, "testing timeout session config");
 }
 
+- (void)testTimeOutToFaceInference {
+    NSNumber *expectedValueTimeoutToFaceInference = [NSNumber numberWithInt:15];
+    [self.acessoBioManager setTimeoutToFaceInference:15];
+    NSNumber *resultValueAtTimeToFaceInference = [NSNumber numberWithInt:self.acessoBioManager.secondsTimeoutToFaceInference];
+    XCTAssertEqualObjects(expectedValueTimeoutToFaceInference, resultValueAtTimeToFaceInference, "testing timeout to face inference");
+}
+
+- (void)testLanguageOrigin {
+    NSNumber *origin = [NSNumber numberWithInteger:Flutter];
+   [self.acessoBioManager setLanguageOrigin:Flutter release:
+    @"1.0"];
+    NSNumber *resultValueLanguageOrigin =  [NSNumber numberWithInteger: self.acessoBioManager.language];
+    XCTAssertEqualObjects(origin, resultValueLanguageOrigin, "testing language origin");
+}
+
 #pragma mark - Custom
 /* This test covers hexa string color and the UIColor with RGB */
 - (void)testCustomSilhoutteNeutral {

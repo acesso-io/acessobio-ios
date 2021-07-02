@@ -50,7 +50,7 @@
 #pragma mark - Origin and Version
 
 - (void)setDefaultOrigin {
-    language = Native;
+    _language = Native;
 }
 
 - (void)setDefaultVersionRelease {
@@ -64,7 +64,7 @@
         [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"setTimeoutToFaceInference" description:@"É necessário insirir um valor maior que 5 segundos no método: setTimeoutToFaceInference."]];
         return;
     }
-    secondsTimeoutToFaceInference = seconds;
+    _secondsTimeoutToFaceInference = seconds;
 }
 
 - (void)setTimeoutSession: (double)seconds{
@@ -80,11 +80,11 @@
 }
 
 - (void)setDefaultTimeoutFaceInference {
-    secondsTimeoutToFaceInference = defaultTimeoutToFaceInference;
+    _secondsTimeoutToFaceInference = defaultTimeoutToFaceInference;
 }
 
 - (void)setLanguageOrigin: (LanguageOrigin)origin release: (NSString*)release{
-    language = origin;
+    _language = origin;
     versionRelease = release;
 }
 
@@ -345,10 +345,10 @@
         [cView setColorBackground:_colorBackground];
         [cView setColorBackgroundBoxStatus:_colorBackgroundBoxStatus];
         [cView setColorTextBoxStatus:_colorTextBoxStatus];
-        [cView setLanguage:language];
+        [cView setLanguage:_language];
         [cView setVersionRelease:versionRelease];
         [cView setSecondsTimeoutSession:_secondsTimeoutSession];
-        [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+        [cView setSecondsTimeoutToInferenceFace:_secondsTimeoutToFaceInference];
         [self presentView:cView];
         
     }
@@ -379,10 +379,10 @@
             [cView setColorBackground:_colorBackground];
             [cView setColorBackgroundBoxStatus:_colorBackgroundBoxStatus];
             [cView setColorTextBoxStatus:_colorTextBoxStatus];
-            [cView setLanguage:language];
+            [cView setLanguage:_language];
             [cView setVersionRelease:versionRelease];
             [cView setSecondsTimeoutSession:_secondsTimeoutSession];
-            [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+            [cView setSecondsTimeoutToInferenceFace:_secondsTimeoutToFaceInference];
             [self presentView:cView];
             
         }
@@ -412,10 +412,10 @@
             [cView setTOKEN:token];
             [cView setIsEnableAutoCapture:_isAutoCapture];
             [cView setIsEnableSmartCapture:_isSmartCamera];
-            [cView setLanguage:language];
+            [cView setLanguage:_language];
             [cView setVersionRelease:versionRelease];
             [cView setSecondsTimeoutSession:_secondsTimeoutSession];
-            [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+            [cView setSecondsTimeoutToInferenceFace:_secondsTimeoutToFaceInference];
             [self presentView:cView];
             
         }
@@ -513,10 +513,10 @@
     [cView setIsEnableSmartCapture:_isSmartCamera];
     [cView setIsFacesCompareOneToOne:YES];
     [cView setCpfToFacesCompare:cpf];
-    [cView setLanguage:language];
+    [cView setLanguage:_language];
     [cView setVersionRelease:versionRelease];
     [cView setSecondsTimeoutSession:_secondsTimeoutSession];
-    [cView setSecondsTimeoutToInferenceFace:secondsTimeoutToFaceInference];
+    [cView setSecondsTimeoutToInferenceFace:_secondsTimeoutToFaceInference];
     [self presentView:cView];
     
 }

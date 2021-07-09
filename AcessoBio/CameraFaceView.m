@@ -681,7 +681,6 @@ float marginOfSides_CameraFace = 80.0f;
     
 }
 
-// @params: toFinalValidate @description: indica se é a validação final para realizar a captura.
 
 - (BOOL)validateFaceCenter : (CIFaceFeature *)face {
     
@@ -699,7 +698,6 @@ float marginOfSides_CameraFace = 80.0f;
      CGPoint leftEarPosition = CGPointMake(((face.bounds.origin.x) + face.bounds.size.width), UIScreen.mainScreen.bounds.size.height/2);
      CGPoint rightEarPosition = CGPointMake((face.bounds.origin.x), UIScreen.mainScreen.bounds.size.height/2);
      */
-
     
     // Olhos
     CGFloat X_LEFT_EYE_POINT = [self normalizeXPoint:leftEyePosition.x faceWidth:face.bounds.size.width];
@@ -722,7 +720,7 @@ float marginOfSides_CameraFace = 80.0f;
     int leftMargin = frameFaceCenter.origin.x;
     int rightMargin = (frameFaceCenter.origin.x + frameFaceCenter.size.width);
     
-    float minimumDistance = 150.0f;
+    float minimumDistance = 250.0f;
     if(scaleMain > 2) {
         minimumDistance = 84.0f;
     }
@@ -748,7 +746,7 @@ float marginOfSides_CameraFace = 80.0f;
 //
 //    NSLog(@"result: %d", (fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y));
     
-    
+
 
     if((fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y || fabs(Y_LEFT_EYE_POINT) > (frameFaceCenter.origin.y + frameFaceCenter.size.height)) || (fabs(Y_RIGHT_EYE_POINT) < frameFaceCenter.origin.y || fabs(Y_RIGHT_EYE_POINT) > (frameFaceCenter.origin.y + frameFaceCenter.size.height))) {
         countTimeAlert ++;
@@ -761,12 +759,11 @@ float marginOfSides_CameraFace = 80.0f;
     }else if(X_RIGHT_EYE_POINT > rightMargin || X_LEFT_EYE_POINT < leftMargin) {
         countTimeAlert ++;
         if(hasError){
-            [strError appendString:@" / Put your face away"];
+            [strError appendString:@" / Center face"];
         }else{
-            [strError appendString:@"Put your face away"];
+            [strError appendString:@"Center face"];
         }
         hasError = YES;
-        
     }else if(distanceBeetwenEyes < minimumDistance) {
         countTimeAlert ++;
         if(hasError){
@@ -776,13 +773,11 @@ float marginOfSides_CameraFace = 80.0f;
         }
         
         hasError = YES;
-        
     }
     
     if(![self isSmallScreen]) {
         
-
-        if((fabs(Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT) > 20) || (fabs(Y_RIGHT_EYE_POINT - Y_LEFT_EYE_POINT) > 20)){
+        if((fabs(Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT) > 20)){
             countTimeAlert ++;
             if(hasError){
                 [strError appendString:@" / Inclined face"];
@@ -790,9 +785,8 @@ float marginOfSides_CameraFace = 80.0f;
                 [strError appendString:@"Inclined face"];
             }
             hasError = YES;
-            
         }
-        
+        /*
         if(FACE_ANGLE > 20 || FACE_ANGLE < - 20) {
             countTimeAlert ++;
             if(hasError){
@@ -811,6 +805,7 @@ float marginOfSides_CameraFace = 80.0f;
             hasError = YES;
             
         }
+         */
     }
     
     BOOL validFace = !hasError;

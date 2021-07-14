@@ -713,13 +713,18 @@ float marginOfSides_CameraFace = 80.0f;
      */
     // Face Angle
     CGFloat FACE_ANGLE = 180 - fabs(face.faceAngle);
+    NSLog(@"FACE_ANGLE: %.2f",FACE_ANGLE);
+    
     
     BOOL hasError = NO;
-    
+//
     strError = [NSMutableString new];
     
+    // Silhueta
     int leftMargin = frameFaceCenter.origin.x;
     int rightMargin = (frameFaceCenter.origin.x + frameFaceCenter.size.width);
+    int topMargin = frameFaceCenter.origin.y;
+    int bottomMargin = frameFaceCenter.size.height;
     
     float minimumDistance = 250.0f;
     if(IS_RETINA) {
@@ -727,7 +732,7 @@ float marginOfSides_CameraFace = 80.0f;
     }
     
     float distanceBeetwenEyes = ((fabs(X_RIGHT_EYE_POINT - X_LEFT_EYE_POINT)) * 2);
-    NSLog(@"distanceBeetwenEyes: %.2f",distanceBeetwenEyes);
+//    NSLog(@"distanceBeetwenEyes: %.2f",distanceBeetwenEyes);
     /*
     // Orelhas
     [self addCircleToPoint:CGPointMake(fabs(X_LEFT_EAR_POINT), UIScreen.mainScreen.bounds.size.height/2) color:[UIColor yellowColor]];
@@ -741,14 +746,12 @@ float marginOfSides_CameraFace = 80.0f;
     [self addCircleToPoint:CGPointMake(fabs(leftMargin), UIScreen.mainScreen.bounds.size.height/2) color:[UIColor blackColor]];
     [self addCircleToPoint:CGPointMake(fabs(rightMargin), UIScreen.mainScreen.bounds.size.height/2) color:[UIColor whiteColor]];
      */
-    
-    
 //    NSLog(@"frameFaceCenter.origin.y: %.f", frameFaceCenter.origin.y);
-//
 //    NSLog(@"result: %d", (fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y));
     
-    //Verificação se o olho esta acima da silhueta
-    if ((fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y) || (fabs(Y_RIGHT_EYE_POINT) < frameFaceCenter.origin.y)){
+    //Verificação se o olho está acima da silhueta
+    if ((fabs(Y_LEFT_EYE_POINT) < topMargin) ||
+        (fabs(Y_RIGHT_EYE_POINT) < topMargin)){
         countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
@@ -756,9 +759,9 @@ float marginOfSides_CameraFace = 80.0f;
             [strError appendString:@"Center face"];
         }
         hasError = YES;
-        
-    } //verificar se o olho esta na metade para baixo da silhueta
-    else if((fabs(Y_LEFT_EYE_POINT) > (frameFaceCenter.origin.y + (frameFaceCenter.size.height / 2))) || fabs(Y_RIGHT_EYE_POINT) > (frameFaceCenter.origin.y + (frameFaceCenter.size.height/ 2))) {
+    } //Verificação se o olho está na metade para baixo da silhueta
+    else if((fabs(Y_LEFT_EYE_POINT) > (topMargin + (bottomMargin / 2))) ||
+            fabs(Y_RIGHT_EYE_POINT) > (topMargin + (bottomMargin/ 2))) {
         countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
@@ -766,7 +769,8 @@ float marginOfSides_CameraFace = 80.0f;
             [strError appendString:@"Center face"];
         }
         hasError = YES;
-    }else if(X_RIGHT_EYE_POINT > rightMargin || X_LEFT_EYE_POINT < leftMargin) {
+    }else if(X_RIGHT_EYE_POINT > rightMargin ||
+             X_LEFT_EYE_POINT < leftMargin) {
         countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
@@ -787,7 +791,8 @@ float marginOfSides_CameraFace = 80.0f;
     
     if(![self isSmallScreen]) {
         
-        if((fabs(Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT) > 20)){
+        if((fabs(Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT) > 5)){
+//            NSLog(@"Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT: %.2f",Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT);
             countError ++;
             if(hasError){
                 [strError appendString:@" / Inclined face"];

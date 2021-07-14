@@ -691,6 +691,7 @@ float marginOfSides_CameraFace = 80.0f;
     
     //float compensationBoxEar = 20.0f;
     
+    
     CGPoint leftEyePosition = face.leftEyePosition;
     CGPoint rightEyePosition = face.rightEyePosition;
     
@@ -704,7 +705,7 @@ float marginOfSides_CameraFace = 80.0f;
     CGFloat Y_LEFT_EYE_POINT = [self normalizeYPoint:leftEyePosition.y faceHeight:face.bounds.size.height];
     
     CGFloat X_RIGHT_EYE_POINT = [self normalizeXPoint:rightEyePosition.x faceWidth:face.bounds.size.width];
-    CGFloat Y_RIGHT_EYE_POINT = [self normalizeYPoint:rightEyePosition.y faceHeight:face.bounds.size.width];
+    CGFloat Y_RIGHT_EYE_POINT = [self normalizeYPoint:rightEyePosition.y faceHeight:face.bounds.size.height];
     
     /***Unused
      CGFloat X_LEFT_EAR_POINT = [self normalizeXPoint:leftEarPosition.x  faceWidth:face.bounds.size.width];
@@ -721,12 +722,12 @@ float marginOfSides_CameraFace = 80.0f;
     int rightMargin = (frameFaceCenter.origin.x + frameFaceCenter.size.width);
     
     float minimumDistance = 250.0f;
-    if(scaleMain > 2) {
-        minimumDistance = 84.0f;
+    if(IS_RETINA) {
+        minimumDistance = 190.0f;
     }
     
     float distanceBeetwenEyes = ((fabs(X_RIGHT_EYE_POINT - X_LEFT_EYE_POINT)) * 2);
-    
+    NSLog(@"distanceBeetwenEyes: %.2f",distanceBeetwenEyes);
     /*
     // Orelhas
     [self addCircleToPoint:CGPointMake(fabs(X_LEFT_EAR_POINT), UIScreen.mainScreen.bounds.size.height/2) color:[UIColor yellowColor]];
@@ -746,10 +747,19 @@ float marginOfSides_CameraFace = 80.0f;
 //
 //    NSLog(@"result: %d", (fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y));
     
-
-
-    if((fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y || fabs(Y_LEFT_EYE_POINT) > (frameFaceCenter.origin.y + frameFaceCenter.size.height)) || (fabs(Y_RIGHT_EYE_POINT) < frameFaceCenter.origin.y || fabs(Y_RIGHT_EYE_POINT) > (frameFaceCenter.origin.y + frameFaceCenter.size.height))) {
-        countTimeAlert ++;
+    //Verificação se o olho esta acima da silhueta
+    if ((fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y) || (fabs(Y_RIGHT_EYE_POINT) < frameFaceCenter.origin.y)){
+        countError ++;
+        if(hasError){
+            [strError appendString:@" / Center face"];
+        }else{
+            [strError appendString:@"Center face"];
+        }
+        hasError = YES;
+        
+    } //verificar se o olho esta na metade para baixo da silhueta
+    else if((fabs(Y_LEFT_EYE_POINT) > (frameFaceCenter.origin.y + (frameFaceCenter.size.height / 2))) || fabs(Y_RIGHT_EYE_POINT) > (frameFaceCenter.origin.y + (frameFaceCenter.size.height/ 2))) {
+        countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
         }else{
@@ -757,7 +767,7 @@ float marginOfSides_CameraFace = 80.0f;
         }
         hasError = YES;
     }else if(X_RIGHT_EYE_POINT > rightMargin || X_LEFT_EYE_POINT < leftMargin) {
-        countTimeAlert ++;
+        countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
         }else{
@@ -765,7 +775,7 @@ float marginOfSides_CameraFace = 80.0f;
         }
         hasError = YES;
     }else if(distanceBeetwenEyes < minimumDistance) {
-        countTimeAlert ++;
+        countError ++;
         if(hasError){
             [strError appendString:@" / Bring the face closer"];
         }else{
@@ -778,7 +788,7 @@ float marginOfSides_CameraFace = 80.0f;
     if(![self isSmallScreen]) {
         
         if((fabs(Y_LEFT_EYE_POINT - Y_RIGHT_EYE_POINT) > 20)){
-            countTimeAlert ++;
+            countError ++;
             if(hasError){
                 [strError appendString:@" / Inclined face"];
             }else{
@@ -824,11 +834,15 @@ float marginOfSides_CameraFace = 80.0f;
     
 }
 
-- (void)showAlert : (NSString *)alert {
+- (void)showError : (NSString *)error {
     
-    if(countTimeAlert >= 10) {
+    float minimumCountError = 10;
+    if (IS_IPHONE_X_OR_MORE){
+        minimumCountError = 20;
+    }
+    if(countError >= minimumCountError) {
         
-        countTimeAlert = 0;
+        countError = 0;
         isShowAlert = NO;
         
         [self showRed];
@@ -841,11 +855,11 @@ float marginOfSides_CameraFace = 80.0f;
             animation.duration = 0.75;
             [self->lbMessage.layer addAnimation:animation forKey:@"kCATransitionFade"];
             
-            if([alert containsString:@"Bring the face closer"]) {
+            if([error containsString:@"Bring the face closer"]) {
                 [self setMessageStatus:@"Aproxime o rosto"];
-            }else if ([alert containsString:@"Put your face away"]){
+            }else if ([error containsString:@"Put your face away"]){
                 [self setMessageStatus:@"Afaste o rosto"];
-            }else if ([alert containsString:@"Inclined face"]){
+            }else if ([error containsString:@"Inclined face"]){
                 [self setMessageStatus:@"Deixe seu rosto reto na tela"];
             }else{
                 [self setMessageStatus:@"Enquadre o seu rosto"];
@@ -926,7 +940,7 @@ float marginOfSides_CameraFace = 80.0f;
 }
 
 - (void)faceIsNotOK: (NSString *)error {
-    [self showAlert:error];
+    [self showError:error];
 }
 
 - (void)faceIsOK{

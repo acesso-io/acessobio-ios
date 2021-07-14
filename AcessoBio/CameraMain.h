@@ -29,6 +29,7 @@
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 #define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
+#define IS_IPHONE_X_OR_MORE (IS_IPHONE && SCREEN_MAX_LENGTH >= 1218.0)
 
 #define PLATAFORM = [[[UIDevice currentDevice] systemVersion] intValue];
 

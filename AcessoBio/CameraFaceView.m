@@ -681,9 +681,8 @@ float marginOfSides_CameraFace = 80.0f;
     
 }
 
-
 - (BOOL)validateFaceCenter : (CIFaceFeature *)face {
-    
+        
     countNoNose = 0;
     
     float scaleMain = [UIScreen mainScreen].scale;
@@ -748,6 +747,10 @@ float marginOfSides_CameraFace = 80.0f;
      */
 //    NSLog(@"frameFaceCenter.origin.y: %.f", frameFaceCenter.origin.y);
 //    NSLog(@"result: %d", (fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y));
+    
+    if([[face valueForKey:@"identifier_face"] isEqualToString: @"last_face"]) {
+        NSLog(@"É a ultima face/foto");
+    }
     
     //Verificação se o olho está acima da silhueta
     if ((fabs(Y_LEFT_EYE_POINT) < topMargin) ||
@@ -1026,7 +1029,8 @@ float marginOfSides_CameraFace = 80.0f;
     if(!isShowAlertLiveness) {
         
         if(countDown == 0) {
-
+            // The last validation
+            [faceObj setValue:@"last_face" forKey:@"identifier_face"];
             if(countWithNoFaceAtScreen > 0 || ![self validateFaceCenter:faceObj]) {
                 [self showRed];
             }else{

@@ -693,6 +693,7 @@ float marginOfSides_CameraFace = 80.0f;
     
     CGPoint leftEyePosition = face.leftEyePosition;
     CGPoint rightEyePosition = face.rightEyePosition;
+    CGPoint mouthPosition = face.mouthPosition;
     
     /***Unused
      CGPoint leftEarPosition = CGPointMake(((face.bounds.origin.x) + face.bounds.size.width), UIScreen.mainScreen.bounds.size.height/2);
@@ -706,6 +707,8 @@ float marginOfSides_CameraFace = 80.0f;
     CGFloat X_RIGHT_EYE_POINT = [self normalizeXPoint:rightEyePosition.x faceWidth:face.bounds.size.width];
     CGFloat Y_RIGHT_EYE_POINT = [self normalizeYPoint:rightEyePosition.y faceHeight:face.bounds.size.height];
     
+    CGFloat X_MOUTH_POINT = [self normalizeXPoint:mouthPosition.x faceWidth:face.bounds.size.width];
+    CGFloat Y_MOUTH_POINT = [self normalizeYPoint:mouthPosition.y faceHeight:face.bounds.size.height];
     /***Unused
      CGFloat X_LEFT_EAR_POINT = [self normalizeXPoint:leftEarPosition.x  faceWidth:face.bounds.size.width];
      CGFloat X_RIGHT_EAR_POINT = [self normalizeXPoint:rightEarPosition.x faceWidth:face.bounds.size.width];
@@ -724,6 +727,7 @@ float marginOfSides_CameraFace = 80.0f;
     int rightMargin = (frameFaceCenter.origin.x + frameFaceCenter.size.width);
     int topMargin = frameFaceCenter.origin.y;
     int bottomMargin = frameFaceCenter.size.height;
+    
     
     float minimumDistance = 250.0f;
     if(IS_RETINA) {
@@ -748,13 +752,13 @@ float marginOfSides_CameraFace = 80.0f;
 //    NSLog(@"frameFaceCenter.origin.y: %.f", frameFaceCenter.origin.y);
 //    NSLog(@"result: %d", (fabs(Y_LEFT_EYE_POINT) < frameFaceCenter.origin.y));
     
-    if([[face valueForKey:@"identifier_face"] isEqualToString: @"last_face"]) {
-        NSLog(@"É a ultima face/foto");
-    }
-    
+//    if([[face valueForKey:@"identifier_face"] isEqualToString: @"last_face"]) {
+//        NSLog(@"É a ultima face/foto");
+//    }
+//
     //Verificação se o olho está acima da silhueta
     if ((fabs(Y_LEFT_EYE_POINT) < topMargin) ||
-        (fabs(Y_RIGHT_EYE_POINT) < topMargin)){
+        (fabs(Y_RIGHT_EYE_POINT) < topMargin) ){
         countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
@@ -762,9 +766,11 @@ float marginOfSides_CameraFace = 80.0f;
             [strError appendString:@"Center face"];
         }
         hasError = YES;
-    } //Verificação se o olho está na metade para baixo da silhueta
+    } //Verificação se o olho está na metade para baixo da silhueta e se a boca esta na posição correta
     else if((fabs(Y_LEFT_EYE_POINT) > (topMargin + (bottomMargin / 2))) ||
-            fabs(Y_RIGHT_EYE_POINT) > (topMargin + (bottomMargin/ 2))) {
+            fabs(Y_RIGHT_EYE_POINT) > (topMargin + (bottomMargin/ 2)) ||
+            fabs(Y_MOUTH_POINT) < (topMargin + (bottomMargin/ 2))
+            ) {
         countError ++;
         if(hasError){
             [strError appendString:@" / Center face"];
@@ -1030,7 +1036,7 @@ float marginOfSides_CameraFace = 80.0f;
         
         if(countDown == 0) {
             // The last validation
-            [faceObj setValue:@"last_face" forKey:@"identifier_face"];
+//            [faceObj setValue:@"last_face" forKey:@"identifier_face"];
             if(countWithNoFaceAtScreen > 0 || ![self validateFaceCenter:faceObj]) {
                 [self showRed];
             }else{

@@ -88,6 +88,9 @@ NS_ASSUME_NONNULL_BEGIN
     CGRect frameFaceAway;
     CGRect frameFaceCloser;
     
+    BOOL leftEyeClosed;
+    BOOL rightEyeClosed;
+    
     BOOL isSuccessAnimated;
     BOOL isErrorAnimated;
     

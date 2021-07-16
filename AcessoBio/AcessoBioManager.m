@@ -13,16 +13,12 @@
 
 @implementation AcessoBioManager
 
-- (id)initWithViewController:(id)view url:(NSString *)pUrl apikey:(NSString *)pApikey token:(NSString *)pToken
-{
+- (id)initWithViewController:(id)view{
     
     self = [super init];
     if(self) {
         viewController = view;
         self.delegate = view;
-        url = pUrl;
-        apikey = pApikey;
-        token = pToken;
         _isAutoCapture = YES;
         _isSmartCamera = YES;
         [self setDefaults];
@@ -334,9 +330,6 @@
         
         cView = [CameraFaceView new];
         [cView setAcessiBioManager:self];
-        [cView setURL:url];
-        [cView setAPIKEY:apikey];
-        [cView setTOKEN:token];
         [cView setIsEnableAutoCapture:_isAutoCapture];
         [cView setIsEnableSmartCapture:_isSmartCamera];
         [cView setColorSilhoutteNeutral:_colorSilhoutteNeutral];
@@ -357,7 +350,7 @@
 
 - (void)openCameraFaceWithCreateProcess: (NSString *)code name:(NSString *) name {
     
-    if([self verifyDataREST]) {
+//    if([self verifyDataREST]) {
         if ([self verifyTarget]) {
             
             CreateProcess *objProcess = [CreateProcess new];
@@ -368,9 +361,6 @@
             
             cView = [CameraFaceView new];
             [cView setAcessiBioManager:self];
-            [cView setURL:url];
-            [cView setAPIKEY:apikey];
-            [cView setTOKEN:token];
             [cView setIsEnableAutoCapture:_isAutoCapture];
             [cView setIsEnableSmartCapture:_isSmartCamera];
             [cView setColorSilhoutteNeutral:_colorSilhoutteNeutral];
@@ -385,14 +375,14 @@
             [cView setSecondsTimeoutToInferenceFace:_secondsTimeoutToFaceInference];
             [self presentView:cView];
             
-        }
+        
     }
     
 }
 
 - (void)openCameraFaceWithCreateProcess: (NSString *)code name:(NSString *) name gender: (NSString *)gender birthdate: (NSString *)birthdate email: (NSString *)email phone : (NSString *)phone {
     
-    if([self verifyDataREST]) {
+//    if([self verifyDataREST]) {
         if ([self verifyTarget]) {
             
             CreateProcess *objProcess = [CreateProcess new];
@@ -407,9 +397,6 @@
             
             cView = [CameraFaceView new];
             [cView setAcessiBioManager:self];
-            [cView setURL:url];
-            [cView setAPIKEY:apikey];
-            [cView setTOKEN:token];
             [cView setIsEnableAutoCapture:_isAutoCapture];
             [cView setIsEnableSmartCapture:_isSmartCamera];
             [cView setLanguage:_language];
@@ -418,7 +405,7 @@
             [cView setSecondsTimeoutToInferenceFace:_secondsTimeoutToFaceInference];
             [self presentView:cView];
             
-        }
+        
     }
     
 }
@@ -447,9 +434,6 @@
     dView = [DocumentInsertView new];
     
     [dView setAcessoBioManager:self];
-    [dView setURL:url];
-    [dView setAPIKEY:apikey];
-    [dView setTOKEN:token];
     [dView setOperationType:OCR];
     
     if(documentType == DocumentCNH) {
@@ -482,9 +466,6 @@
     dView = [DocumentInsertView new];
     
     [dView setAcessoBioManager:self];
-    [dView setURL:url];
-    [dView setAPIKEY:apikey];
-    [dView setTOKEN:token];
     [dView setBase64SelfieToFaceMatch:base64Facematch];
     [dView setOperationType:Facematch];
     
@@ -506,9 +487,6 @@
     
     cView = [CameraFaceView new];
     [cView setAcessiBioManager:self];
-    [cView setURL:url];
-    [cView setAPIKEY:apikey];
-    [cView setTOKEN:token];
     [cView setIsEnableAutoCapture:_isAutoCapture];
     [cView setIsEnableSmartCapture:_isSmartCamera];
     [cView setIsFacesCompareOneToOne:YES];
@@ -589,26 +567,26 @@
     return isValid;
 }
 
-- (BOOL)verifyDataREST {
-    
-    NSURL *urlToValidate = [NSURL URLWithString:url];
-    if (!urlToValidate || !urlToValidate.scheme || !urlToValidate.host)
-    {
-        
-        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"A URL fornecida é inválida."]];
-        return NO;
-    }else if(apikey.length == 0) {
-        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"A APIKEY fornecida está vazia."]];
-        return NO;
-    }else if(token.length == 0) {
-        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"O TOKEN fornecido está vazio."]];
-        
-        return NO;
-    }
-    
-    return YES;
-    
-}
+//- (BOOL)verifyDataREST {
+//
+//    NSURL *urlToValidate = [NSURL URLWithString:url];
+//    if (!urlToValidate || !urlToValidate.scheme || !urlToValidate.host)
+//    {
+//
+//        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"A URL fornecida é inválida."]];
+//        return NO;
+//    }else if(apikey.length == 0) {
+//        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"A APIKEY fornecida está vazia."]];
+//        return NO;
+//    }else if(token.length == 0) {
+//        [self onErrorAcessoBioManager:[[ErrorBio alloc]initCode:400 method:@"verifyDataREST" description:@"O TOKEN fornecido está vazio."]];
+//
+//        return NO;
+//    }
+//
+//    return YES;
+//
+//}
 
 
 #pragma mark - Callbacks

@@ -337,16 +337,16 @@
     
 }
 
-- (NSMutableURLRequest *)getRequestMain: (NSURL *)url params:(NSDictionary *)params {
-    NSError *error;
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:self.APIKEY forHTTPHeaderField:@"APIKEY"];
-    [request addValue:self.TOKEN forHTTPHeaderField:@"Authorization"];
-    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error]];
-    return request;
-}
+//- (NSMutableURLRequest *)getRequestMain: (NSURL *)url params:(NSDictionary *)params {
+//    NSError *error;
+//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
+//    [request setHTTPMethod:@"POST"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request addValue:self.APIKEY forHTTPHeaderField:@"APIKEY"];
+//    [request addValue:self.TOKEN forHTTPHeaderField:@"Authorization"];
+//    [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error]];
+//    return request;
+//}
 
 - (void)exitError {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
